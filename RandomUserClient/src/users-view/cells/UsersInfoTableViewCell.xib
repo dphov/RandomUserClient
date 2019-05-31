@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UsersInfoTableViewCell" customModule="RandomUserClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="G1M-hN-aIf">
+                    <rect key="frame" x="81.5" y="12" width="192.5" height="51.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zS-N7-MiC">
+                            <rect key="frame" x="0.0" y="0.0" width="192.5" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="31" id="GCb-vE-xg0"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e-mail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRV-ok-Y0p">
+                            <rect key="frame" x="0.0" y="31" width="192.5" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20.5" id="cIM-ot-O4m"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-group" translatesAutoresizingMaskIntoConstraints="NO" id="gfJ-tF-mRq">
+                    <rect key="frame" x="20" y="12" width="51.5" height="51.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="VuG-Q5-kWX"/>
+                        <constraint firstAttribute="width" secondItem="gfJ-tF-mRq" secondAttribute="height" multiplier="1:1" id="nVu-aS-M7o"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="49" id="yNG-bO-fYp"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6y-2J-NyT">
+                    <rect key="frame" x="282" y="27" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="M6y-2J-NyT" secondAttribute="height" multiplier="1:1" id="E6W-zz-qdC"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="22" id="j2a-Fc-zkf"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="22" id="m5d-it-G5X"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="star"/>
+                    <connections>
+                        <action selector="favouritesButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="BKj-G2-CY3"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="M6y-2J-NyT" firstAttribute="leading" secondItem="G1M-hN-aIf" secondAttribute="trailing" constant="8" id="0KU-Pe-0GU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gfJ-tF-mRq" secondAttribute="bottom" constant="11.5" id="0QH-pl-D9D"/>
+                <constraint firstItem="M6y-2J-NyT" firstAttribute="centerY" secondItem="gfJ-tF-mRq" secondAttribute="centerY" id="0Xq-ZL-rgh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="M6y-2J-NyT" secondAttribute="trailing" constant="16" id="UeK-dJ-zg4"/>
+                <constraint firstItem="gfJ-tF-mRq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="c4K-X3-EBc"/>
+                <constraint firstItem="G1M-hN-aIf" firstAttribute="height" secondItem="gfJ-tF-mRq" secondAttribute="height" id="dIS-zV-Km5"/>
+                <constraint firstItem="G1M-hN-aIf" firstAttribute="leading" secondItem="gfJ-tF-mRq" secondAttribute="trailing" constant="10" id="eOK-WP-rod"/>
+                <constraint firstItem="G1M-hN-aIf" firstAttribute="centerY" secondItem="gfJ-tF-mRq" secondAttribute="centerY" id="eOf-J9-c6H"/>
+                <constraint firstItem="gfJ-tF-mRq" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="kKq-qs-3rT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="emailLabel" destination="FRV-ok-Y0p" id="qwQ-ae-2vi"/>
+                <outlet property="favouritesButton" destination="M6y-2J-NyT" id="d58-tR-GFf"/>
+                <outlet property="userImageView" destination="gfJ-tF-mRq" id="opQ-Gw-C7g"/>
+                <outlet property="userNameLabel" destination="7zS-N7-MiC" id="d85-Py-gTu"/>
+            </connections>
+            <point key="canvasLocation" x="121.875" y="-12.147887323943662"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="star" width="100" height="100"/>
+        <image name="user-group" width="100" height="100"/>
+    </resources>
+</document>

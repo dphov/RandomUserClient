@@ -9,13 +9,9 @@
 import UIKit
 
 class UserInfoTopCell: UITableViewCell {
-
     @IBOutlet weak var userAvatarImageView: UIImageView!
-    
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
-    @IBOutlet weak var dateOfBirthLabel: UILabel!
-    @IBOutlet weak var genderLabel: UILabel!
     func getId() -> String {
         return "UserInfoTopCell"
     }

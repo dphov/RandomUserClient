@@ -26,6 +26,7 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tY-Vh-g23">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Featured" id="ml5-fm-3DS"/>
                                 </items>
@@ -59,76 +60,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JVS-Cg-o8w" id="Og5-x6-oJP">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-group" translatesAutoresizingMaskIntoConstraints="NO" id="u44-Ga-RL2">
-                                                    <rect key="frame" x="20" y="8" width="51.5" height="51.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="51.5" id="F1g-xb-HyG"/>
-                                                        <constraint firstAttribute="height" constant="51.5" id="H2e-UI-ojl"/>
-                                                        <constraint firstAttribute="width" secondItem="u44-Ga-RL2" secondAttribute="height" multiplier="1:1" id="hhH-w0-xaL"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i4j-Av-Sto">
-                                                    <rect key="frame" x="79.5" y="8" width="95.5" height="51.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umh-2S-MaM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="95.5" height="31"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="31" id="Xwz-R5-M9m"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="e-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD8-AZ-26v">
-                                                            <rect key="frame" x="0.0" y="31" width="95.5" height="20.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="20.5" id="2tn-Yv-HwP"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRc-NH-Vup">
-                                                    <rect key="frame" x="283" y="23" width="22" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="7bt-JI-ujB"/>
-                                                        <constraint firstAttribute="width" constant="22" id="c67-Kn-htF"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button" image="star"/>
-                                                    <connections>
-                                                        <action selector="favouritesButtonPressed:" destination="JVS-Cg-o8w" eventType="touchUpInside" id="JaN-pA-kS0"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="i4j-Av-Sto" firstAttribute="top" secondItem="Og5-x6-oJP" secondAttribute="top" constant="8" id="3Lj-Lb-6xT"/>
-                                                <constraint firstAttribute="bottom" secondItem="i4j-Av-Sto" secondAttribute="bottom" constant="8" id="4cT-W4-fEF"/>
-                                                <constraint firstItem="u44-Ga-RL2" firstAttribute="top" secondItem="Og5-x6-oJP" secondAttribute="top" constant="8" id="7sM-2h-5cl"/>
-                                                <constraint firstAttribute="bottom" secondItem="u44-Ga-RL2" secondAttribute="bottom" constant="8" id="GHS-z8-bn0"/>
-                                                <constraint firstItem="ZRc-NH-Vup" firstAttribute="leading" relation="lessThanOrEqual" secondItem="i4j-Av-Sto" secondAttribute="trailing" constant="108" id="XIK-lG-LCm"/>
-                                                <constraint firstItem="ZRc-NH-Vup" firstAttribute="trailing" secondItem="Og5-x6-oJP" secondAttribute="trailingMargin" id="XSn-3F-iv5"/>
-                                                <constraint firstItem="ZRc-NH-Vup" firstAttribute="top" secondItem="Og5-x6-oJP" secondAttribute="topMargin" constant="12" id="jX7-PR-oLh"/>
-                                                <constraint firstItem="i4j-Av-Sto" firstAttribute="leading" secondItem="u44-Ga-RL2" secondAttribute="trailing" constant="8" id="lqY-IH-GyN"/>
-                                                <constraint firstItem="u44-Ga-RL2" firstAttribute="leading" secondItem="Og5-x6-oJP" secondAttribute="leading" constant="20" id="ws9-8O-Ctz"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="emailLabel" destination="FD8-AZ-26v" id="BeY-rp-PVc"/>
-                                            <outlet property="favouritesButton" destination="ZRc-NH-Vup" id="1F9-c3-HhJ"/>
-                                            <outlet property="userImageView" destination="u44-Ga-RL2" id="ZC3-zb-gJe"/>
-                                            <outlet property="userNameLabel" destination="Umh-2S-MaM" id="4NX-NA-Beu"/>
-                                            <segue destination="gOK-zC-Qk5" kind="show" id="AsA-BB-k56"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXv-tn-Vro">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXv-tn-Vro">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Users" id="XCB-2x-NEK"/>
                                 </items>
@@ -138,6 +82,7 @@
                         <viewLayoutGuide key="safeArea" id="uqK-hg-4V3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Users" selectedImage="user" id="2Ts-2O-vDV"/>
+                    <navigationItem key="navigationItem" title="Users" id="cTX-TQ-aky"/>
                     <connections>
                         <outlet property="usersNavBar" destination="AXv-tn-Vro" id="wZv-2G-iEk"/>
                         <outlet property="usersTableView" destination="RgJ-R4-bhZ" id="F82-KE-S69"/>
@@ -150,7 +95,7 @@
         <!--User Info View Controller-->
         <scene sceneID="igd-cp-bRL">
             <objects>
-                <viewController id="gOK-zC-Qk5" customClass="UserInfoViewController" customModule="RandomUserClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserInfoViewController" id="gOK-zC-Qk5" customClass="UserInfoViewController" customModule="RandomUserClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEN-hy-cdv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,50 +103,39 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7vV-PM-JDV">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="User Info" id="zc3-xV-jpC">
-                                        <barButtonItem key="leftBarButtonItem" title="Back to users" id="meg-uP-gAo">
-                                            <connections>
-                                                <action selector="tappedBackToUsersButton:" destination="gOK-zC-Qk5" id="UER-cK-jbn"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="User Info" id="zc3-xV-jpC"/>
                                 </items>
                             </navigationBar>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gZO-xg-ZQ2">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="RzD-d7-mU1" kind="embed" id="0WB-ro-QVa"/>
+                                    <segue destination="RzD-d7-mU1" kind="embed" identifier="showUserInfoSegue" id="0WB-ro-QVa"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lfG-9f-8Wq"/>
                     </view>
+                    <connections>
+                        <outlet property="containerViewUserInfoTableViewController" destination="gZO-xg-ZQ2" id="USp-As-kJQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H89-dC-Ghf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2390.625" y="-1056.338028169014"/>
+            <point key="canvasLocation" x="2460" y="-1071"/>
         </scene>
         <!--User Info Table View Controller-->
         <scene sceneID="kvC-bL-aXr">
             <objects>
                 <tableViewController id="RzD-d7-mU1" customClass="UserInfoTableViewController" customModule="RandomUserClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7mL-Xg-Lvx">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7mL-Xg-Lvx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserInfoTopCell" rowHeight="59" id="q7p-DC-on9" customClass="UserInfoTopCell" customModule="RandomUserClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="59"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q7p-DC-on9" id="rSo-3n-kkd">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="58.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="RzD-d7-mU1" id="7al-V4-LuG"/>
@@ -221,20 +155,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="2ip-X0-02e" kind="relationship" relationship="viewControllers" id="a57-p3-3Bv"/>
+                        <segue destination="vWA-qW-52K" kind="relationship" relationship="viewControllers" id="Mzq-ft-fW6"/>
                         <segue destination="jZ3-aL-pRw" kind="relationship" relationship="viewControllers" id="m6C-h5-QFS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1X-iI-GmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="941" y="-813"/>
+            <point key="canvasLocation" x="231" y="-699"/>
+        </scene>
+        <!--Users-->
+        <scene sceneID="ZKv-Jf-DUm">
+            <objects>
+                <navigationController id="vWA-qW-52K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Users" selectedImage="user" id="eyu-LA-RZb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sGY-i8-5xz">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2ip-X0-02e" kind="relationship" relationship="rootViewController" id="xGF-T5-DyN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Efw-PL-NsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="-1056"/>
         </scene>
     </scenes>
     <resources>
-        <image name="star" width="100" height="100"/>
         <image name="user" width="32" height="32"/>
-        <image name="user-group" width="100" height="100"/>
     </resources>
 </document>

@@ -8,12 +8,19 @@
 
 import UIKit
 
+
 class UserInfoViewController: UIViewController {
-    @IBAction func tappedBackToUsersButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+  var userObject: RandomUserDataModel = RandomUserDataModel()
+
+  @IBOutlet weak var containerViewUserInfoTableViewController: UIView!
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showUserInfoSegue" {
+      if let userInfo = segue.destination as? UserInfoTableViewController {
+        userInfo.userObject = self.userObject
+      }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+  }
 }

@@ -7,35 +7,59 @@
 //
 
 import UIKit
-class UserInfoTableViewController: UITableViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.register(UINib(nibName: "UserInfoTopCell", bundle: nil), forCellReuseIdentifier: "UserInfoTopCell")
-    }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+import MapKit
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell
-        var cell1: UserInfoTopCell
 
-        switch indexPath.section {
-        case 0:
-            cell1 = tableView.dequeueReusableCell(withIdentifier: "UserInfoTopCell", for: indexPath) as! UserInfoTopCell
-            //cell1.userAvatarImageView.image = UIImage(named: "user-group")
-            print(cell1)
-            cell1.firstNameLabel.text = "Jaques"
-            cell1.lastNameLabel.text = "Dupont"
-            cell1.dateOfBirthLabel.text = "20.10.1988"
-            cell1.genderLabel.text = "Male"
-            return cell1
-        default:
-            cell = UITableViewCell()
-            return cell
+
+class UserInfoTableViewController: UITableViewController, MKMapViewDelegate {
+
+  var userObject: RandomUserDataModel = RandomUserDataModel()
+  override func viewDidLoad() {
+      super.viewDidLoad()
+
+      self.tableView.register(UINib(nibName: "UserInfoTopCell", bundle: nil), forCellReuseIdentifier: "UserInfoTopCell")
+      self.tableView.register(UINib(nibName: "UserLocationCell", bundle: nil), forCellReuseIdentifier: "UserLocationCell")
+    print(userObject)
+  }
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return 1
+  }
+  override func numberOfSections(in tableView: UITableView) -> Int {
+      return 2
+  }
+
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    var cell: UITableViewCell
+    var cell1: UserInfoTopCell
+    var cell2: UserLocationCell
+    switch indexPath.section {
+    case 0:
+        cell1 = tableView.dequeueReusableCell(withIdentifier: "UserInfoTopCell", for: indexPath) as! UserInfoTopCell
+        let url = URL(string: (userObject.picture?.large!)!)
+        var data: Data = Data()
+        DispatchQueue.global().async {
+          data = try! Data(contentsOf: url!)
+          DispatchQueue.main.async {
+            cell1.userAvatarImageView.image = UIImage(data: data)
+          }
         }
+        cell1.firstNameLabel.text = userObject.name?.first?.capitalized
+        cell1.lastNameLabel.text = userObject.name?.last?.capitalized
+        return cell1
+    case 1:
+      cell2 = tableView.dequeueReusableCell(withIdentifier: "UserLocationCell", for: indexPath) as! UserLocationCell
+      cell2.userLocationMapView.delegate = self
+      cell2.userLocationMapView.mapType = .standard
+      cell2.userLocationMapView.setRegion(MKCoordinateRegion.init(center:
+        CLLocationCoordinate2D(
+          latitude: userObject.location?.coordinates?.latitude!.doubleValue ?? 0, // TODO handle null
+          longitude: userObject.location?.coordinates?.longitude!.doubleValue ?? 0),
+        latitudinalMeters: 1000, longitudinalMeters: 1000),
+        animated: true)
+      return cell2
+    default:
+        cell = UITableViewCell()
+        return cell
     }
+  }
 }
