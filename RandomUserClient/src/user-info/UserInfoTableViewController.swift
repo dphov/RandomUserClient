@@ -11,15 +11,14 @@ import MapKit
 
 
 
-class UserInfoTableViewController: UITableViewController, MKMapViewDelegate {
+class UserInfoTableViewController: UITableViewController {
+  //TODO: Make featured button 
 
   var userObject: RandomUserDataModel = RandomUserDataModel()
   override func viewDidLoad() {
       super.viewDidLoad()
-
       self.tableView.register(UINib(nibName: "UserInfoTopCell", bundle: nil), forCellReuseIdentifier: "UserInfoTopCell")
       self.tableView.register(UINib(nibName: "UserLocationCell", bundle: nil), forCellReuseIdentifier: "UserLocationCell")
-    print(userObject)
   }
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return 1
@@ -37,10 +36,12 @@ class UserInfoTableViewController: UITableViewController, MKMapViewDelegate {
         cell1 = tableView.dequeueReusableCell(withIdentifier: "UserInfoTopCell", for: indexPath) as! UserInfoTopCell
         let url = URL(string: (userObject.picture?.large!)!)
         var data: Data = Data()
-        DispatchQueue.global().async {
-          data = try! Data(contentsOf: url!)
-          DispatchQueue.main.async {
-            cell1.userAvatarImageView.image = UIImage(data: data)
+        if InternetReachiability.isConnectedToNetwork() {
+          DispatchQueue.global().async {
+            data = try! Data(contentsOf: url!)
+            DispatchQueue.main.async {
+              cell1.userAvatarImageView.image = UIImage(data: data)
+            }
           }
         }
         cell1.firstNameLabel.text = userObject.name?.first?.capitalized
@@ -48,18 +49,23 @@ class UserInfoTableViewController: UITableViewController, MKMapViewDelegate {
         return cell1
     case 1:
       cell2 = tableView.dequeueReusableCell(withIdentifier: "UserLocationCell", for: indexPath) as! UserLocationCell
-      cell2.userLocationMapView.delegate = self
+      //cell2.userLocationMapView.delegate = self
       cell2.userLocationMapView.mapType = .standard
-      cell2.userLocationMapView.setRegion(MKCoordinateRegion.init(center:
-        CLLocationCoordinate2D(
-          latitude: userObject.location?.coordinates?.latitude!.doubleValue ?? 0, // TODO handle null
-          longitude: userObject.location?.coordinates?.longitude!.doubleValue ?? 0),
-        latitudinalMeters: 1000, longitudinalMeters: 1000),
-        animated: true)
-      return cell2
+      if ((userObject.location?.coordinates?.latitude) != nil) {
+        cell2.userLocationMapView.setRegion(MKCoordinateRegion.init(center:
+          CLLocationCoordinate2D(
+            latitude: (userObject.location?.coordinates?.latitude!.doubleValue)!,
+            longitude: (userObject.location?.coordinates?.longitude!.doubleValue)!),
+          latitudinalMeters: 1000, longitudinalMeters: 1000),
+          animated: true)
+        return cell2
+      } else {
+        return UITableViewCell()
+      }
     default:
         cell = UITableViewCell()
         return cell
     }
   }
 }
+

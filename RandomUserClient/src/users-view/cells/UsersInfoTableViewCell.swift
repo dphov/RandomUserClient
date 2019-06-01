@@ -14,11 +14,14 @@ class UsersInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var favouritesButton: UIButton!
+  //TODO: write to db
     @IBAction func favouritesButtonPressed(_ sender: UIButton) {
         if inFavourites {
-            print("Delete from fav!")
+          print("Delete from fav!")
+          self.favouritesButton.setImage(UIImage(named: "star"), for: .normal)
         } else {
-            print("Add to fav!")
+          print("Add to fav!")
+          self.favouritesButton.setImage(UIImage(named: "star-filled"), for: .normal)
         }
         inFavourites = !inFavourites
     }

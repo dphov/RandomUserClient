@@ -9,9 +9,10 @@
 
 import UIKit
 
-class FavouritesViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+class FavouritesViewController: UIViewController, ServiceableByRealm {
+  var realmService: RealmService?
+  override func viewDidLoad() {
+      super.viewDidLoad()
+      // Do any additional setup after loading the view.
+  }
 }

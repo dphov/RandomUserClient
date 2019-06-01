@@ -10,6 +10,7 @@ import UIKit
 
 
 class UserInfoViewController: UIViewController {
+  
   var userObject: RandomUserDataModel = RandomUserDataModel()
 
   @IBOutlet weak var containerViewUserInfoTableViewController: UIView!

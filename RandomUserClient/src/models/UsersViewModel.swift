@@ -7,113 +7,114 @@
 //
 
 import RealmSwift
-import Realm
 
-final class RandomUserDataNameModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var title: String?
-  @objc dynamic var first: String?
-  @objc dynamic var last: String?
+@objcMembers final class RandomUserDataNameModel: Object {
+  dynamic var id: String?
+  dynamic var title: String?
+  dynamic var first: String?
+  dynamic var last: String?
   override static func primaryKey() -> String? {
     return "id"
   }
 }
 
-final class RandomUserDataLocationCoordinatesModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var latitude: String?
-  @objc dynamic var longitude: String?
+@objcMembers final class RandomUserDataLocationCoordinatesModel: Object {
+  dynamic var id: String?
+  dynamic var latitude: String?
+  dynamic var longitude: String?
   override static func primaryKey() -> String? {
     return "id"
   }
 }
 
-final class RandomUserDataLocationTimezoneModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var offset: String?
-  @objc dynamic var zoneDescription: String?
+@objcMembers final class RandomUserDataLocationTimezoneModel: Object {
+  dynamic var id: String?
+  dynamic var offset: String?
+  dynamic var zoneDescription: String?
   override static func primaryKey() -> String? {
     return "id"
   }
 }
 
-final class RandomUserDataLocationModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var street: String?
-  @objc dynamic var city: String?
-  @objc dynamic var state: String?
-  @objc dynamic var postcode: Int = 0
-  @objc dynamic var coordinates: RandomUserDataLocationCoordinatesModel?
-  @objc dynamic var timezone: RandomUserDataLocationTimezoneModel?
+@objcMembers final class RandomUserDataLocationModel: Object {
+  dynamic var id: String?
+  dynamic var street: String?
+  dynamic var city: String?
+  dynamic var state: String?
+  dynamic var postcode: Int = 0
+  dynamic var coordinates: RandomUserDataLocationCoordinatesModel?
+  dynamic var timezone: RandomUserDataLocationTimezoneModel?
   override static func primaryKey() -> String? {
     return "id"
   }
 }
 
-final class RandomUserDataLoginModel: Object {
-  @objc dynamic var uuid: String?
-  @objc dynamic var username: String?
-  @objc dynamic var password: String?
-  @objc dynamic var salt: String?
-  @objc dynamic var md5: String?
-  @objc dynamic var sha1: String?
-  @objc dynamic var sha256: String?
+@objcMembers final class RandomUserDataLoginModel: Object {
+  dynamic var uuid: String?
+  dynamic var username: String?
+  dynamic var password: String?
+  dynamic var salt: String?
+  dynamic var md5: String?
+  dynamic var sha1: String?
+  dynamic var sha256: String?
   override static func primaryKey() -> String? {
     return "uuid"
   }
 }
 
-final class RandomUserDataDOBModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var date: String?
-  @objc dynamic var age: Int = 0
+@objcMembers final class RandomUserDataDOBModel: Object {
+  dynamic var id: String?
+  dynamic var date: String?
+  dynamic var age: Int = 0
   override static func primaryKey() -> String? {
     return "id"
   }
 }
 
-final class RandomUserDataRegisteredModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var date: String?
-  @objc dynamic var age: Int = 0
+@objcMembers final class RandomUserDataRegisteredModel: Object {
+  dynamic var id: String?
+  dynamic var date: String?
+  dynamic var age: Int = 0
   override static func primaryKey() -> String? {
     return "id"
   }
 }
 
-final class RandomUserDataIDModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var name: String?
-  @objc dynamic var value: String?
+@objcMembers final class RandomUserDataIDModel: Object {
+  dynamic var id: String?
+  dynamic var name: String?
+  dynamic var value: String?
   override static func primaryKey() -> String? {
     return "id"
   }
 }
 
-final class RandomUserDataPictureModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var large: String?
-  @objc dynamic var medium: String?
-  @objc dynamic var thumbnail: String?
+@objcMembers final class RandomUserDataPictureModel: Object {
+  dynamic var id: String?
+  dynamic var large: String?
+  dynamic var medium: String?
+  dynamic var thumbnail: String?
   override static func primaryKey() -> String? {
     return "id"
   }
 }
 
-final class RandomUserDataModel: Object {
-  @objc dynamic var id: String?
-  @objc dynamic var gender: String?
-  @objc dynamic var name: RandomUserDataNameModel?
-  @objc dynamic var location: RandomUserDataLocationModel?
-  @objc dynamic var email: String?
-  @objc dynamic var login: RandomUserDataLoginModel?
-  @objc dynamic var dob: RandomUserDataDOBModel?
-  @objc dynamic var registered: RandomUserDataRegisteredModel?
-  @objc dynamic var phone: String?
-  @objc dynamic var cell: String?
-  @objc dynamic var dataId: RandomUserDataIDModel?
-  @objc dynamic var picture: RandomUserDataPictureModel?
-  @objc dynamic var nat: String?
+@objcMembers final class RandomUserDataModel: Object {
+  dynamic var id: String?
+  dynamic var gender: String?
+  dynamic var name: RandomUserDataNameModel?
+  dynamic var location: RandomUserDataLocationModel?
+  dynamic var email: String?
+  dynamic var login: RandomUserDataLoginModel?
+  dynamic var dob: RandomUserDataDOBModel?
+  dynamic var registered: RandomUserDataRegisteredModel?
+  dynamic var phone: String?
+  dynamic var cell: String?
+  dynamic var dataId: RandomUserDataIDModel?
+  dynamic var picture: RandomUserDataPictureModel?
+  dynamic var nat: String?
+  dynamic var isInFavorites: Bool = false
+
   override static func primaryKey() -> String? {
     return "id"
   }
@@ -183,12 +184,3 @@ final class RandomUserDataModel: Object {
   }
 }
 
-func writeRandomUserDataModel(data: RandomUserData) {
-  DispatchQueue(label: "background").async {
-    let realm = try! Realm()
-    let obj = RandomUserDataModel(value: data)
-    try! realm.write {
-      realm.add(obj, update: true)
-    }
-  }
-}
