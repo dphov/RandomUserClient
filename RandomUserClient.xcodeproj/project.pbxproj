@@ -16,6 +16,13 @@
 		A83C439F22A1CAB300C493BB /* UserLoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83C439E22A1CAB300C493BB /* UserLoginCell.xib */; };
 		A83C43A122A1CCA300C493BB /* UserDateAgeDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83C43A022A1CCA300C493BB /* UserDateAgeDisplayCell.xib */; };
 		A83C43A322A1CD2A00C493BB /* UserIDCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83C43A222A1CD2A00C493BB /* UserIDCell.xib */; };
+		A85F5F0122A430B9005478FA /* UserAdressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0022A430B9005478FA /* UserAdressCell.swift */; };
+		A85F5F0322A430D2005478FA /* UserDateAgeDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0222A430D2005478FA /* UserDateAgeDisplayCell.swift */; };
+		A85F5F0522A430E6005478FA /* UserIDCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0422A430E6005478FA /* UserIDCell.swift */; };
+		A85F5F0722A43108005478FA /* UserLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0622A43108005478FA /* UserLoginCell.swift */; };
+		A85F5F0922A43120005478FA /* UserTimezoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0822A43120005478FA /* UserTimezoneCell.swift */; };
+		A85F5F0B22A45CDF005478FA /* UserOtherDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0A22A45CDF005478FA /* UserOtherDataCell.swift */; };
+		A85F5F0D22A45D21005478FA /* UserOtherDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85F5F0C22A45D21005478FA /* UserOtherDataCell.xib */; };
 		A86BD7CE229E87CE00BDB0C6 /* UserInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86BD7CD229E87CE00BDB0C6 /* UserInfoTableViewController.swift */; };
 		A86BD7D0229E8EC400BDB0C6 /* UserInfoTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86BD7CF229E8EC400BDB0C6 /* UserInfoTopCell.xib */; };
 		A873105B22A2E23000FF7326 /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873105A22A2E23000FF7326 /* InternetReachability.swift */; };
@@ -49,6 +56,13 @@
 		A83C439E22A1CAB300C493BB /* UserLoginCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserLoginCell.xib; sourceTree = "<group>"; };
 		A83C43A022A1CCA300C493BB /* UserDateAgeDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDateAgeDisplayCell.xib; sourceTree = "<group>"; };
 		A83C43A222A1CD2A00C493BB /* UserIDCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserIDCell.xib; sourceTree = "<group>"; };
+		A85F5F0022A430B9005478FA /* UserAdressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdressCell.swift; sourceTree = "<group>"; };
+		A85F5F0222A430D2005478FA /* UserDateAgeDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDateAgeDisplayCell.swift; sourceTree = "<group>"; };
+		A85F5F0422A430E6005478FA /* UserIDCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDCell.swift; sourceTree = "<group>"; };
+		A85F5F0622A43108005478FA /* UserLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginCell.swift; sourceTree = "<group>"; };
+		A85F5F0822A43120005478FA /* UserTimezoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTimezoneCell.swift; sourceTree = "<group>"; };
+		A85F5F0A22A45CDF005478FA /* UserOtherDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOtherDataCell.swift; sourceTree = "<group>"; };
+		A85F5F0C22A45D21005478FA /* UserOtherDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserOtherDataCell.xib; path = ../UserOtherDataCell.xib; sourceTree = "<group>"; };
 		A86BD7CD229E87CE00BDB0C6 /* UserInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewController.swift; sourceTree = "<group>"; };
 		A86BD7CF229E8EC400BDB0C6 /* UserInfoTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoTopCell.xib; sourceTree = "<group>"; };
 		A873105A22A2E23000FF7326 /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
@@ -115,15 +129,22 @@
 		A86BD7D1229EA47C00BDB0C6 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				A85F5F0022A430B9005478FA /* UserAdressCell.swift */,
 				A83C439A22A1C8DF00C493BB /* UserAdressCell.xib */,
+				A85F5F0222A430D2005478FA /* UserDateAgeDisplayCell.swift */,
 				A83C43A022A1CCA300C493BB /* UserDateAgeDisplayCell.xib */,
+				A85F5F0422A430E6005478FA /* UserIDCell.swift */,
 				A83C43A222A1CD2A00C493BB /* UserIDCell.xib */,
 				A8F8573C229DAF7D00700E9F /* UserInfoTopCell.swift */,
 				A86BD7CF229E8EC400BDB0C6 /* UserInfoTopCell.xib */,
 				A83C439622A16A2C00C493BB /* UserLocationCell.swift */,
 				A83C439422A16A0500C493BB /* UserLocationCell.xib */,
+				A85F5F0622A43108005478FA /* UserLoginCell.swift */,
 				A83C439E22A1CAB300C493BB /* UserLoginCell.xib */,
+				A85F5F0822A43120005478FA /* UserTimezoneCell.swift */,
 				A83C439C22A1CA0800C493BB /* UserTimezoneCell.xib */,
+				A85F5F0A22A45CDF005478FA /* UserOtherDataCell.swift */,
+				A85F5F0C22A45D21005478FA /* UserOtherDataCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -291,6 +312,7 @@
 				A8B969B9229C1F280085C735 /* Assets.xcassets in Resources */,
 				A83C43A322A1CD2A00C493BB /* UserIDCell.xib in Resources */,
 				A83C439B22A1C8DF00C493BB /* UserAdressCell.xib in Resources */,
+				A85F5F0D22A45D21005478FA /* UserOtherDataCell.xib in Resources */,
 				A86BD7D0229E8EC400BDB0C6 /* UserInfoTopCell.xib in Resources */,
 				A83C439522A16A0500C493BB /* UserLocationCell.xib in Resources */,
 				A8B969B7229C1F260085C735 /* Main.storyboard in Resources */,
@@ -350,15 +372,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				A83C439722A16A2C00C493BB /* UserLocationCell.swift in Sources */,
+				A85F5F0B22A45CDF005478FA /* UserOtherDataCell.swift in Sources */,
+				A85F5F0522A430E6005478FA /* UserIDCell.swift in Sources */,
+				A85F5F0722A43108005478FA /* UserLoginCell.swift in Sources */,
 				A86BD7CE229E87CE00BDB0C6 /* UserInfoTableViewController.swift in Sources */,
 				A89A9B0322A040CA0075FC02 /* UsersViewModel.swift in Sources */,
 				A87DE7CF229D50B100197BCC /* UsersInfoTableViewCell.swift in Sources */,
+				A85F5F0922A43120005478FA /* UserTimezoneCell.swift in Sources */,
+				A85F5F0122A430B9005478FA /* UserAdressCell.swift in Sources */,
 				A89FF919229EF74B00B6B41A /* UsersViewStructs.swift in Sources */,
 				A832951B229D6468000A4FD8 /* UserInfoViewController.swift in Sources */,
 				A83C439922A1A5DF00C493BB /* StringUtils.swift in Sources */,
 				A873106022A2FCC200FF7326 /* RandomUsersClientTabBarController.swift in Sources */,
 				A87DE7CD229D3D7100197BCC /* FavouritesViewController.swift in Sources */,
 				A89FF917229EF6F400B6B41A /* UrlUtils.swift in Sources */,
+				A85F5F0322A430D2005478FA /* UserDateAgeDisplayCell.swift in Sources */,
 				A87DE7CB229D3D5A00197BCC /* UsersViewController.swift in Sources */,
 				A873105B22A2E23000FF7326 /* InternetReachability.swift in Sources */,
 				A89A9B0522A05BDE0075FC02 /* UsersInfoController.swift in Sources */,

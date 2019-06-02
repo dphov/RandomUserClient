@@ -71,6 +71,7 @@ extension UsersViewController: UITableViewDelegate {
     }
   }
 }
+
 // MARK: - UITableViewDataSource
 extension UsersViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
