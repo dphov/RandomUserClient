@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UsersInfoController {
+struct UsersListInfoController {
   func fetchUsersData(completion: @escaping (RandomUsersDataRoot?) -> Void) {
     let baseURL = URL(string:"https://randomuser.me/api")!
     let query: [String: String] = [

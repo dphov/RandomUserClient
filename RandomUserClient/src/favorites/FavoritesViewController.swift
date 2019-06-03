@@ -9,7 +9,7 @@
 
 import UIKit
 
-class FavouritesViewController: UIViewController, ServiceableByRealm {
+class FavoritesViewController: UIViewController, ServiceableByRealm {
   var realmService: RealmService?
   override func viewDidLoad() {
       super.viewDidLoad()

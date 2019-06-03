@@ -13,16 +13,23 @@ class UserInfoTableViewController: UITableViewController {
   //TODO: Make featured button 
 
   var userObject: RandomUserDataModel = RandomUserDataModel()
+  var cellsForRegister = ["UserInfoTopCell", "UserLocationCell", "UserAdressCell",
+                          "UserTimezoneCell", "UserLoginCell", "UserDateAgeDisplayCell",
+                          "UserIDCell", "UserOtherDataCell"]
+  func registerCells() {
+    for id in cellsForRegister {
+      self.tableView.register(UINib(nibName: id, bundle: nil), forCellReuseIdentifier: id)
+    }
+  }
+
+  func setup() {
+    tableView.allowsSelection = false
+    registerCells()
+  }
+
   override func viewDidLoad() {
-      super.viewDidLoad()
-      self.tableView.register(UINib(nibName: "UserInfoTopCell", bundle: nil), forCellReuseIdentifier: "UserInfoTopCell")
-      self.tableView.register(UINib(nibName: "UserLocationCell", bundle: nil), forCellReuseIdentifier: "UserLocationCell")
-      self.tableView.register(UINib(nibName: "UserAdressCell", bundle: nil), forCellReuseIdentifier: "UserAdressCell")
-      self.tableView.register(UINib(nibName: "UserTimezoneCell", bundle: nil), forCellReuseIdentifier: "UserTimezoneCell")
-      self.tableView.register(UINib(nibName: "UserLoginCell", bundle: nil), forCellReuseIdentifier: "UserLoginCell")
-      self.tableView.register(UINib(nibName: "UserDateAgeDisplayCell", bundle: nil), forCellReuseIdentifier: "UserDateAgeDisplayCell")
-      self.tableView.register(UINib(nibName: "UserIDCell", bundle: nil), forCellReuseIdentifier: "UserIDCell")
-      self.tableView.register(UINib(nibName: "UserOtherDataCell", bundle: nil), forCellReuseIdentifier: "UserOtherDataCell")
+    super.viewDidLoad()
+    setup()
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
