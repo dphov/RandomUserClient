@@ -18,26 +18,19 @@ class RealmService {
 
   let realm = try! Realm()
 
-  func create< T: Object> (_ object: T) {
-    DispatchQueue(label: "background").async {
-      let realm = try! Realm()
-      do {
-        try realm.write {
-          realm.add(object, update: true)
-        }
-      } catch {
-        self.post(error)
+  func create< T: Object> (_ object: T, update isNeedUpdate: Bool = false) {
+    let realm = try! Realm()
+    do {
+      try realm.write {
+        realm.add(object, update: isNeedUpdate)
       }
+    } catch {
+      self.post(error)
     }
   }
   func update<T: Object>(_ object: T, with dictionary: [String: Any?]) {
-    let objectRef = ThreadSafeReference.init(to: object)
-    DispatchQueue(label: "background").async {
-      let realm = try! Realm()
-      guard let object = realm.resolve(objectRef) else {
-        return
-      }
-      do {
+    let realm = try! Realm()
+    do {
         try realm.write {
           for (key, value) in dictionary {
             object.setValue(value, forKey: key)
@@ -45,7 +38,6 @@ class RealmService {
         }
       } catch {
         self.post(error)
-      }
     }
   }
   func update<T: Object>(_ object: T) {

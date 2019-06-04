@@ -18,11 +18,12 @@ class RandomUsersClientTabBarController: UITabBarController {
 
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
     if item.title == "Users" {
-      var vc = self.viewControllers?.first?.children.first as? ServiceableByRealm
+      let vc = self.viewControllers?.first?.children.first as? UsersListViewController
       vc?.realmService = self.realmService
     } else {
-      var vc = self.viewControllers?[1].children.first as? ServiceableByRealm
-      vc?.realmService = self.realmService
+      if let vc = self.viewControllers?[1].children.first as? FavoritesViewController {
+          vc.realmService = self.realmService
+      }
     }
   }
 }

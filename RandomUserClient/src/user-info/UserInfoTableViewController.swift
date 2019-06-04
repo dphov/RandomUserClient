@@ -111,7 +111,6 @@ class UserInfoTableViewController: UITableViewController {
       userTimezoneCell = tableView.dequeueReusableCell(withIdentifier: "UserTimezoneCell", for: indexPath) as! UserTimezoneCell
       if let userObjectTimezoneOffset: String = userObjectTimezone.offset,
         let userObjectTimezoneDescription: String = userObjectTimezone.zoneDescription {
-
         userTimezoneCell.offsetLabel.text = "Offset: " + userObjectTimezoneOffset
         userTimezoneCell.descriptionLabel.text = "Description: " + userObjectTimezoneDescription
         return userTimezoneCell
@@ -192,11 +191,11 @@ class UserInfoTableViewController: UITableViewController {
         let userObjectEmail = userObject.email,
         let userObjectNat = userObject.nat,
         let userObjectGender = userObject.gender {
-      userOtherDataCell.cellLabel.text = "Cell: " + userObjectCell
-      userOtherDataCell.phoneLabel.text = "Phone: " + userObjectPhone
-      userOtherDataCell.emailLabel.text = "E-mail: " + userObjectEmail
-      userOtherDataCell.natLabel.text = "Nationality: " + userObjectNat
-      userOtherDataCell.genderLabel.text = "Gender: " + userObjectGender
+          userOtherDataCell.cellLabel.text = "Cell: " + userObjectCell
+          userOtherDataCell.phoneLabel.text = "Phone: " + userObjectPhone
+          userOtherDataCell.emailLabel.text = "E-mail: " + userObjectEmail
+          userOtherDataCell.natLabel.text = "Nationality: " + userObjectNat
+          userOtherDataCell.genderLabel.text = "Gender: " + userObjectGender
       }
       return userOtherDataCell
     default:

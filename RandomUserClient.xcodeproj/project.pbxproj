@@ -227,13 +227,13 @@
 		A8B969B0229C1F260085C735 /* RandomUserClient */ = {
 			isa = PBXGroup;
 			children = (
+				A87DE7C9229D3D3800197BCC /* src */,
+				A873105F22A2FCC200FF7326 /* RandomUsersClientTabBarController.swift */,
 				A8B969B1229C1F260085C735 /* AppDelegate.swift */,
 				A8B969B8229C1F280085C735 /* Assets.xcassets */,
 				A8B969BD229C1F280085C735 /* Info.plist */,
 				A8B969BA229C1F280085C735 /* LaunchScreen.storyboard */,
 				A8B969B5229C1F260085C735 /* Main.storyboard */,
-				A87DE7C9229D3D3800197BCC /* src */,
-				A873105F22A2FCC200FF7326 /* RandomUsersClientTabBarController.swift */,
 			);
 			path = RandomUserClient;
 			sourceTree = "<group>";

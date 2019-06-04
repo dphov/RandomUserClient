@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="902" y="-401"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Favorites-->
         <scene sceneID="iEs-ne-tmR">
             <objects>
                 <viewController id="jZ3-aL-pRw" customClass="FavoritesViewController" customModule="RandomUserClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,7 +53,10 @@
                         <viewLayoutGuide key="safeArea" id="NgP-qu-AwC"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="featured" id="pSG-jL-pVA"/>
-                    <navigationItem key="navigationItem" id="6PC-UH-wFR"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="6PC-UH-wFR"/>
+                    <connections>
+                        <outlet property="favoritesTableView" destination="XhL-q8-wyv" id="cik-9G-QdJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ia-1A-FL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -124,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H89-dC-Ghf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460" y="-1071"/>
+            <point key="canvasLocation" x="2404" y="-1056"/>
         </scene>
         <!--User Info Table View Controller-->
         <scene sceneID="kvC-bL-aXr">
@@ -143,7 +146,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWG-kl-pw6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3166.875" y="-1071.1267605633802"/>
+            <point key="canvasLocation" x="3116" y="-1056"/>
         </scene>
         <!--Random Users Client Tab Bar Controller-->
         <scene sceneID="38a-6t-aVz">

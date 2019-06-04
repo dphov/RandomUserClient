@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UsersListTableViewCellDelegate: class {
-  func callMe(_ cell: UsersListTableViewCell)
+  func changeInFavoritesStatus(_ cell: UsersListTableViewCell)
 }
 
 class UsersListTableViewCell: UITableViewCell {
@@ -18,8 +18,7 @@ class UsersListTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var favouritesButton: UIButton!
-  //TODO: write to db
     @IBAction func favouritesButtonPressed(_ sender: UIButton) {
-          delegate?.callMe(self)
+          delegate?.changeInFavoritesStatus(self)
     }
 }

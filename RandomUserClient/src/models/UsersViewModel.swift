@@ -113,7 +113,7 @@ import RealmSwift
   dynamic var dataId: RandomUserDataIDModel?
   dynamic var picture: RandomUserDataPictureModel?
   dynamic var nat: String?
-  dynamic var isInFavorites: Bool = false
+  dynamic var isInFavorites: String = "false"
 
   override static func primaryKey() -> String? {
     return "id"

@@ -17,11 +17,11 @@ class UserInfoViewController: UIViewController, ServiceableByRealm {
 
   @IBAction func changeInFavoritesStatus() {
     if let userObj = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: userObjectId) {
-      if (userObj.isInFavorites == true) {
-        realmService?.update(userObj, with: ["isInFavorites": false])
+      if (userObj.isInFavorites == "true") {
+        realmService?.update(userObj, with: ["isInFavorites": "false"])
         self.navigationItem.rightBarButtonItem?.image = UIImage.init(named: "star")
       } else {
-        realmService?.update(userObj, with: ["isInFavorites": true])
+        realmService?.update(userObj, with: ["isInFavorites": "true"])
         self.navigationItem.rightBarButtonItem?.image = UIImage.init(named: "star-filled")
       }
     }
@@ -30,7 +30,7 @@ class UserInfoViewController: UIViewController, ServiceableByRealm {
   func setup() {
     if let newUserObject = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: userObjectId) {
       self.userObject = newUserObject
-      if newUserObject.isInFavorites == true {
+      if newUserObject.isInFavorites == "true" {
         changeInFavoritesStatusButton.image = UIImage.init(named: "star-filled")
       } else {
         changeInFavoritesStatusButton.image = UIImage.init(named: "star")
