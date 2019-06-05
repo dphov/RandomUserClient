@@ -40,6 +40,8 @@
 		A8B969B7229C1F260085C735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B969B5229C1F260085C735 /* Main.storyboard */; };
 		A8B969B9229C1F280085C735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B969B8229C1F280085C735 /* Assets.xcassets */; };
 		A8B969BC229C1F280085C735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B969BA229C1F280085C735 /* LaunchScreen.storyboard */; };
+		A8DE9E7922A7B31B00EA413C /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DE9E7822A7B31B00EA413C /* LoadingCell.xib */; };
+		A8DE9E7B22A7B3D700EA413C /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE9E7A22A7B3D700EA413C /* LoadingCell.swift */; };
 		A8F8573D229DAF7D00700E9F /* UserInfoTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8573C229DAF7D00700E9F /* UserInfoTopCell.swift */; };
 		BDA54B4648AA9F5683A516AF /* Pods_RandomUserClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F3B9EE34CC0446AA7600C5 /* Pods_RandomUserClient.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,8 @@
 		A8B969B8229C1F280085C735 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8B969BB229C1F280085C735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8B969BD229C1F280085C735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8DE9E7822A7B31B00EA413C /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		A8DE9E7A22A7B3D700EA413C /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		A8F8573C229DAF7D00700E9F /* UserInfoTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTopCell.swift; sourceTree = "<group>"; };
 		D2F3B9EE34CC0446AA7600C5 /* Pods_RandomUserClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,6 +164,8 @@
 		A878019222A12302004123F8 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				A8DE9E7A22A7B3D700EA413C /* LoadingCell.swift */,
+				A8DE9E7822A7B31B00EA413C /* LoadingCell.xib */,
 				A87DE7CE229D50B100197BCC /* UsersListTableViewCell.swift */,
 				A878019322A12337004123F8 /* UsersListTableViewCell.xib */,
 			);
@@ -308,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8B969BC229C1F280085C735 /* LaunchScreen.storyboard in Resources */,
+				A8DE9E7922A7B31B00EA413C /* LoadingCell.xib in Resources */,
 				A83C439F22A1CAB300C493BB /* UserLoginCell.xib in Resources */,
 				A8B969B9229C1F280085C735 /* Assets.xcassets in Resources */,
 				A83C43A322A1CD2A00C493BB /* UserIDCell.xib in Resources */,
@@ -373,6 +380,7 @@
 			files = (
 				A83C439722A16A2C00C493BB /* UserLocationCell.swift in Sources */,
 				A85F5F0B22A45CDF005478FA /* UserOtherDataCell.swift in Sources */,
+				A8DE9E7B22A7B3D700EA413C /* LoadingCell.swift in Sources */,
 				A85F5F0522A430E6005478FA /* UserIDCell.swift in Sources */,
 				A85F5F0722A43108005478FA /* UserLoginCell.swift in Sources */,
 				A86BD7CE229E87CE00BDB0C6 /* UserInfoTableViewController.swift in Sources */,

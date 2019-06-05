@@ -9,15 +9,18 @@
 import Foundation
 
 struct UsersListInfoController {
-  func fetchUsersData(completion: @escaping (RandomUsersDataRoot?) -> Void) {
-    let baseURL = URL(string:"https://randomuser.me/api")!
+  var lastPage: Int = 10000
+  var firstPage: Int = 1
+  var fetchingMore: Bool = false
+  func fetchUsersData(forPage page: Int, completion: @escaping (RandomUsersDataRoot?) -> Void) {
+    guard let baseURL = URL(string:"https://randomuser.me/api") else {return}
     let query: [String: String] = [
       "seed": "qwerty",
       "results": "10",
-      "page": "1"
+      "page": String(page)
     ]
     let url = baseURL.withQueries(query)!
-    let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
       let jsonDecoder = JSONDecoder()
       guard let data = data else {return}
       let response = response as? HTTPURLResponse

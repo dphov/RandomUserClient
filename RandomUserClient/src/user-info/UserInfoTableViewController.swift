@@ -10,12 +10,11 @@ import UIKit
 import MapKit
 
 class UserInfoTableViewController: UITableViewController {
-  //TODO: Make featured button 
-
   var userObject: RandomUserDataModel = RandomUserDataModel()
   var cellsForRegister = ["UserInfoTopCell", "UserLocationCell", "UserAdressCell",
                           "UserTimezoneCell", "UserLoginCell", "UserDateAgeDisplayCell",
                           "UserIDCell", "UserOtherDataCell"]
+  
   func registerCells() {
     for id in cellsForRegister {
       self.tableView.register(UINib(nibName: id, bundle: nil), forCellReuseIdentifier: id)

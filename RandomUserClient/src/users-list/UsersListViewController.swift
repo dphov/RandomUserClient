@@ -10,12 +10,10 @@ import UIKit
 import RealmSwift
 
 class UsersListViewController: UIViewController, ServiceableByRealm {
-  //TODO: Make notification from realm to table view (because of featured button)
-
   let userDetailsSegueId = "ShowUserDetailsSegue"
   let usersListTableViewCellId = "UsersListTableViewCell"
   var realmService: RealmService?
-  let usersInfoController = UsersListInfoController()
+  var usersInfoController = UsersListInfoController()
   var notificationToken: NotificationToken?
 
   @IBOutlet weak var usersNavBar: UINavigationBar!
@@ -38,9 +36,34 @@ class UsersListViewController: UIViewController, ServiceableByRealm {
     }
   }
 
-  func refreshUsersData(isNeedToUpdate update: Bool = false) {
-    usersInfoController.fetchUsersData { (data) in
+  func getNextPageIndex(elemPerPage: Int) -> Int {
+    guard let resCount = results?.count else {return 0}
+    var currentPage: Int
+
+    if resCount == 0 {
+      return 1
+    }
+    currentPage = resCount / elemPerPage
+    if resCount <= usersInfoController.lastPage {
+      return currentPage + 1
+    }
+    return 0
+  }
+
+  func addUsersData(isNeedToUpdate update: Bool = false) {
+    usersInfoController.fetchingMore = true
+    var page: Int {
+      if update {
+        return 1
+      } else {
+        return getNextPageIndex(elemPerPage: 10)
+      }
+    }
+    usersInfoController.fetchUsersData(forPage: page) { (data) in
       guard let usersData = data else {return}
+      if update {
+        self.realmService?.deleteAll()
+      }
       if let unwrappedUsersDataResults = usersData.results,
         let unwrappedResults = self.results {
         for user in unwrappedUsersDataResults {
@@ -55,9 +78,11 @@ class UsersListViewController: UIViewController, ServiceableByRealm {
         }
       }
     }
+    usersInfoController.fetchingMore = false
   }
+
   @IBAction func refreshUsersDataAction() {
-      refreshUsersData(isNeedToUpdate: true)
+      addUsersData(isNeedToUpdate: true)
       self.refreshControl.endRefreshing()
   }
 
@@ -66,10 +91,11 @@ class UsersListViewController: UIViewController, ServiceableByRealm {
     usersTableView.delegate = self
     usersTableView.dataSource = self
     usersTableView.register(UINib(nibName: usersListTableViewCellId, bundle: nil), forCellReuseIdentifier: usersListTableViewCellId)
-    refreshUsersData()
+    usersTableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
+    addUsersData()
     self.usersTableView.addSubview(self.refreshControl)
     refreshControl.addTarget(self, action: Selector(("refreshUsersDataAction")), for: .valueChanged)
-    refreshControl.attributedTitle = NSAttributedString(string: "Fetching Users Data ...", attributes: nil)
+    refreshControl.attributedTitle = NSAttributedString(string: "Pull down for wipeing table...", attributes: nil)
 
     guard let unwrappedResults = results else {return}
     notificationToken = unwrappedResults.observe { [weak self] (changes: RealmCollectionChange) in
@@ -106,7 +132,6 @@ class UsersListViewController: UIViewController, ServiceableByRealm {
 
 // MARK: - UsersListTableViewCellDelegate
 extension UsersListViewController: UsersListTableViewCellDelegate {
-  // todo: favorites read write problem
   func changeInFavoritesStatus(_ cell: UsersListTableViewCell) {
     if let indexPath = usersTableView.indexPath(for: cell),
       let unwrappedResults = results {
@@ -135,21 +160,30 @@ extension UsersListViewController: UITableViewDelegate {
     cell.selectedBackgroundView = customView
     if let unwrappedResults = results {
       let user: RandomUserDataModel = unwrappedResults[indexPath.row]
-      let tableCell: UsersListTableViewCell = cell as! UsersListTableViewCell
-      if (user.isInFavorites == "true") {
-        tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star-filled")
-      } else {
-        tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star")
+      if type(of: cell) == UsersListTableViewCell.self {
+        let tableCell = cell as! UsersListTableViewCell
+        if (user.isInFavorites == "true") {
+          tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star-filled")
+        } else {
+          tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star")
+        }
       }
     }
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let unwrappedResults = results {
-      return unwrappedResults.count
-    } else {
-      return 0
+    if section == 0 {
+      if let unwrappedResults = results {
+        return unwrappedResults.count
+      }
+    } else if section == 1 && usersInfoController.fetchingMore {
+      return 1
     }
+    return 0
+  }
+
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 2
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -168,38 +202,54 @@ extension UsersListViewController: UITableViewDelegate {
       tableView.deselectRow(at: indexPath, animated: true)
     }
   }
+
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let offsetY = scrollView.contentOffset.y
+    let contentHeight = scrollView.contentSize.height
+    if offsetY > contentHeight - scrollView.frame.height * 4 {
+      if !usersInfoController.fetchingMore {
+        addUsersData()
+      }
+    }
+  }
 }
 
 // MARK: - UITableViewDataSource
 extension UsersListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = usersTableView.dequeueReusableCell(withIdentifier: usersListTableViewCellId, for: indexPath) as? UsersListTableViewCell
-      else {return UITableViewCell()}
-    if let unwrappedResults = results,
-      let rowItemPicture = unwrappedResults[indexPath.row].picture,
-      let rowItemPictureMedium = rowItemPicture.medium,
-      let rowItemName = unwrappedResults[indexPath.row].name,
-      let rowItemNameFirst = rowItemName.first,
-      let rowItemNameLast = rowItemName.last {
-        let url = URL(string: rowItemPictureMedium)
-        var data: Data = Data()
+    if indexPath.section == 0 {
+      guard let cell = usersTableView.dequeueReusableCell(withIdentifier: usersListTableViewCellId, for: indexPath) as? UsersListTableViewCell
+      else { return UITableViewCell() }
+      if let unwrappedResults = results,
+        let rowItemPicture = unwrappedResults[indexPath.row].picture,
+        let rowItemPictureMedium = rowItemPicture.medium,
+        let rowItemName = unwrappedResults[indexPath.row].name,
+        let rowItemNameFirst = rowItemName.first,
+        let rowItemNameLast = rowItemName.last {
+          let url = URL(string: rowItemPictureMedium)
+          var data: Data = Data()
 
-        cell.userNameLabel.text = rowItemNameFirst.capitalized + " " + rowItemNameLast.capitalized
-        cell.emailLabel.text = unwrappedResults[indexPath.row].email
-        cell.delegate = self
-        if InternetReachiability.isConnectedToNetwork() {
-          DispatchQueue.global().async {
-            data = try! Data(contentsOf: url!)
-            DispatchQueue.main.async {
-              cell.userImageView.image = UIImage(data: data)
+          cell.userNameLabel.text = rowItemNameFirst.capitalized + " " + rowItemNameLast.capitalized
+          cell.emailLabel.text = unwrappedResults[indexPath.row].email
+          cell.delegate = self
+          if InternetReachiability.isConnectedToNetwork() {
+            DispatchQueue.global().async {
+              data = try! Data(contentsOf: url!)
+              DispatchQueue.main.async {
+                cell.userImageView.image = UIImage(data: data)
+              }
             }
           }
-        }
+      }
+      cell.userImageView.layer.masksToBounds = true
+      cell.userImageView.layer.cornerRadius = 12.0
+      cell.userImageView.layer.borderWidth = 0.5
+      cell.userImageView.layer.borderColor = UIColor.gray.cgColor
+      return cell
+    } else {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
+      cell.spinner.startAnimating()
+      return cell
     }
-    cell.userImageView.layer.masksToBounds = true
-    cell.userImageView.layer.cornerRadius = 12.0
-    cell.userImageView.layer.borderWidth = 0.5
-    cell.userImageView.layer.borderColor = UIColor.gray.cgColor
-    return cell
   }
 }

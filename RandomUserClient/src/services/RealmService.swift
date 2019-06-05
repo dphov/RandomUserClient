@@ -57,15 +57,24 @@ class RealmService {
     }
   }
   func delete< T: Object> (_ object: T) {
-    DispatchQueue(label: "background").async {
-      let realm = try! Realm()
-      do {
-        try realm.write {
-          realm.delete(object)
-        }
-      } catch {
-        self.post(error)
+    let realm = try! Realm()
+    do {
+      try realm.write {
+        realm.delete(object)
       }
+    } catch {
+      self.post(error)
+    }
+  }
+
+  func deleteAll() {
+    let realm = try! Realm()
+    do {
+      try realm.write {
+        realm.deleteAll()
+      }
+    } catch {
+      self.post(error)
     }
   }
 
