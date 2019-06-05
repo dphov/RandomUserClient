@@ -265,6 +265,7 @@
 				A8B969AB229C1F260085C735 /* Frameworks */,
 				A8B969AC229C1F260085C735 /* Resources */,
 				A407CFA45AE6B3A1BDA52328 /* [CP] Embed Pods Frameworks */,
+				A8BEA54C22A7BF5400D074B4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -370,6 +371,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RandomUserClient/Pods-RandomUserClient-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A8BEA54C22A7BF5400D074B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if /usr/local/bin/swiftlint; then\n    /usr/local/bin/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

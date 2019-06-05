@@ -6,7 +6,6 @@
 //  Copyright © 2019 Dmitry Petukhov. All rights reserved.
 //
 
-
 import RealmSwift
 
 protocol ServiceableByRealm {

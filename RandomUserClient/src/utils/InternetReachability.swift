@@ -1,4 +1,4 @@
-  //
+//
 //  InternetReachability.swift
 //  RandomUserClient
 //
@@ -23,7 +23,8 @@ public class InternetReachiability {
       })
     }
     var flags = SCNetworkReachabilityFlags()
-    guard SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) else { return false }
+    if
+    guard SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) else { return false }
     return flags.contains(.reachable) && !flags.contains(.connectionRequired)
   }
 }

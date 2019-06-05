@@ -6,7 +6,6 @@
 //  Copyright © 2019 Dmitry Petukhov. All rights reserved.
 //
 
-
 import UIKit
 import RealmSwift
 
@@ -103,7 +102,7 @@ extension FavoritesViewController: UITableViewDataSource {
         let rowItemNameLast = rowItemName.last {
         let url = URL(string: rowItemPictureMedium)
         var data: Data = Data()
-        
+
         cell.favouritesButton.imageView?.image = UIImage(named: "star-filled")
         cell.userNameLabel.text = rowItemNameFirst.capitalized + " " + rowItemNameLast.capitalized
         cell.emailLabel.text = unwrappedFilteredResults[indexPath.row].email
@@ -133,7 +132,7 @@ extension FavoritesViewController: UsersListTableViewCellDelegate {
       let selectedRow = indexPath.row
       let selectedUser: RandomUserDataModel = unwrappedResults[selectedRow]
       if let selectedUserId = selectedUser.id,
-        let unwrappedSelectedUser = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: selectedUserId){
+        let unwrappedSelectedUser = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: selectedUserId) {
         if unwrappedSelectedUser.isInFavorites == "true" {
           realmService?.update(unwrappedSelectedUser, with: ["isInFavorites": "false"])
           cell.favouritesButton.imageView?.image = UIImage.init(named: "star")

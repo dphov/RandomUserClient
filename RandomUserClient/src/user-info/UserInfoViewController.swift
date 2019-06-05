@@ -17,7 +17,7 @@ class UserInfoViewController: UIViewController, ServiceableByRealm {
 
   @IBAction func changeInFavoritesStatus() {
     if let userObj = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: userObjectId) {
-      if (userObj.isInFavorites == "true") {
+      if userObj.isInFavorites == "true" {
         realmService?.update(userObj, with: ["isInFavorites": "false"])
         self.navigationItem.rightBarButtonItem?.image = UIImage.init(named: "star")
       } else {
@@ -49,7 +49,7 @@ class UserInfoViewController: UIViewController, ServiceableByRealm {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showUserInfoSegue" {
       if let newUserObject = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: userObjectId),
-         let userInfo = segue.destination as? UserInfoTableViewController{
+         let userInfo = segue.destination as? UserInfoTableViewController {
         userInfo.userObject = newUserObject
       }
     }

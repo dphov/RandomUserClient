@@ -13,18 +13,18 @@ struct UsersListInfoController {
   var firstPage: Int = 1
   var fetchingMore: Bool = false
   func fetchUsersData(forPage page: Int, completion: @escaping (RandomUsersDataRoot?) -> Void) {
-    guard let baseURL = URL(string:"https://randomuser.me/api") else {return}
+    guard let baseURL = URL(string: "https://randomuser.me/api") else {return}
     let query: [String: String] = [
       "seed": "qwerty",
       "results": "10",
       "page": String(page)
     ]
-    let url = baseURL.withQueries(query)!
-    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+    guard let url = baseURL.withQueries(query) else {return}
+    let task = URLSession.shared.dataTask(with: url) { (data, response, _) in
       let jsonDecoder = JSONDecoder()
       guard let data = data else {return}
       let response = response as? HTTPURLResponse
-      if (response?.statusCode != 200) {
+      if response?.statusCode != 200 {
         print("No data or status code not OK")
         return
       }

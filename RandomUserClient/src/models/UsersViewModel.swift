@@ -118,7 +118,7 @@ import RealmSwift
   override static func primaryKey() -> String? {
     return "id"
   }
-  
+
   convenience init(value: RandomUserData) {
     self.init()
     let objName = RandomUserDataNameModel()
@@ -183,4 +183,3 @@ import RealmSwift
     self.nat = value.nat
   }
 }
-

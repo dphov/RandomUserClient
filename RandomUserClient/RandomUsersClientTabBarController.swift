@@ -9,7 +9,7 @@
 import UIKit
 class RandomUsersClientTabBarController: UITabBarController {
   var realmService: RealmService?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     var vc = self.viewControllers?.first?.children.first as? ServiceableByRealm

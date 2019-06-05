@@ -14,4 +14,17 @@ class UserLocationCell: UITableViewCell, MKMapViewDelegate {
     self.userLocationMapView.delegate = self
   }
   @IBOutlet weak var userLocationMapView: MKMapView!
+
+  func setup(_ obj: RandomUserDataLocationModel) {
+    if let userObjectLocationCoordinates = obj.coordinates,
+      let userObjectLocationCoordinatesLatitude = userObjectLocationCoordinates.latitude,
+      let userObjectLocationCoordinatesLongitude = userObjectLocationCoordinates.longitude {
+      self.userLocationMapView.mapType = .standard
+      self.userLocationMapView.setRegion(MKCoordinateRegion.init(center:
+          CLLocationCoordinate2D(
+            latitude: userObjectLocationCoordinatesLatitude.doubleValue,
+            longitude: userObjectLocationCoordinatesLongitude.doubleValue),
+        latitudinalMeters: 1000, longitudinalMeters: 1000), animated: true)
+    }
+  }
 }

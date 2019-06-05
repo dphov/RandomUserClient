@@ -90,11 +90,13 @@ class UsersListViewController: UIViewController, ServiceableByRealm {
     print(Realm.Configuration.defaultConfiguration.fileURL!)
     usersTableView.delegate = self
     usersTableView.dataSource = self
-    usersTableView.register(UINib(nibName: usersListTableViewCellId, bundle: nil), forCellReuseIdentifier: usersListTableViewCellId)
-    usersTableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
+    usersTableView.register(UINib(nibName: usersListTableViewCellId, bundle: nil),
+                            forCellReuseIdentifier: usersListTableViewCellId)
+    usersTableView.register(UINib(nibName: "LoadingCell", bundle: nil),
+                            forCellReuseIdentifier: "LoadingCell")
     addUsersData()
     self.usersTableView.addSubview(self.refreshControl)
-    refreshControl.addTarget(self, action: Selector(("refreshUsersDataAction")), for: .valueChanged)
+    refreshControl.addTarget(self, action: #selector(UsersListViewController.refreshUsersDataAction), for: .valueChanged)
     refreshControl.attributedTitle = NSAttributedString(string: "Pull down for wipeing table...", attributes: nil)
 
     guard let unwrappedResults = results else {return}
@@ -138,7 +140,7 @@ extension UsersListViewController: UsersListTableViewCellDelegate {
       let selectedRow = indexPath.row
       let selectedUser: RandomUserDataModel = unwrappedResults[selectedRow]
       if let selectedUserId = selectedUser.id,
-        let unwrappedSelectedUser = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: selectedUserId){
+        let unwrappedSelectedUser = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: selectedUserId) {
         if unwrappedSelectedUser.isInFavorites == "true" {
           realmService?.update(unwrappedSelectedUser, with: ["isInFavorites": "false"])
           cell.favouritesButton.imageView?.image = UIImage.init(named: "star")
@@ -162,7 +164,7 @@ extension UsersListViewController: UITableViewDelegate {
       let user: RandomUserDataModel = unwrappedResults[indexPath.row]
       if type(of: cell) == UsersListTableViewCell.self {
         let tableCell = cell as! UsersListTableViewCell
-        if (user.isInFavorites == "true") {
+        if user.isInFavorites == "true" {
           tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star-filled")
         } else {
           tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star")
