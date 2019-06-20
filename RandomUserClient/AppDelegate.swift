@@ -6,6 +6,7 @@
 //  Copyright © 2019 Dmitry Petukhov. All rights reserved.
 //
 
+// swiftlint:disable line_length
 import UIKit
 
 @UIApplicationMain

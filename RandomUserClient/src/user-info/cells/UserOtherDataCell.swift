@@ -16,7 +16,7 @@ class UserOtherDataCell: UITableViewCell {
   @IBOutlet weak var cellLabel: UILabel!
   @IBOutlet weak var natLabel: UILabel!
 
-  func setup(_ obj:RandomUserDataModel) {
+  func setup(_ obj: RandomUserDataModel) {
     if let userObjectCell = obj.cell,
       let userObjectPhone  = obj.phone,
       let userObjectEmail = obj.email,

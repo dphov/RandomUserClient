@@ -6,6 +6,8 @@
 //  Copyright © 2019 Dmitry Petukhov. All rights reserved.
 //
 
+// swiftlint:disable force_try
+
 import RealmSwift
 
 protocol ServiceableByRealm {

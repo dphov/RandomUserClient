@@ -16,7 +16,6 @@ class UserLoginCell: UITableViewCell {
   @IBOutlet weak var md5Label: UILabel!
   @IBOutlet weak var sha1Label: UILabel!
   @IBOutlet weak var sha256Label: UILabel!
-  
   func setup(_ obj: RandomUserDataLoginModel) {
     if let userObjectLoginMD5 = obj.md5,
       let userObjectLoginSalt = obj.salt,

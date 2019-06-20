@@ -19,7 +19,11 @@ class UserInfoTopCell: UITableViewCell {
     var data: Data = Data()
     if InternetReachiability.isConnectedToNetwork() {
       DispatchQueue.global().async {
-        data = try! Data(contentsOf: url)
+        do {
+          data = try Data(contentsOf: url)
+        } catch {
+          print(error.localizedDescription)
+        }
         DispatchQueue.main.async {
           self.userAvatarImageView.image = UIImage(data: data)
         }

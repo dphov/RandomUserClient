@@ -21,4 +21,11 @@ class UsersListTableViewCell: UITableViewCell {
     @IBAction func favouritesButtonPressed(_ sender: UIButton) {
           delegate?.changeInFavoritesStatus(self)
     }
+
+  override func prepareForReuse() {
+    self.userImageView.layer.masksToBounds = true
+    self.userImageView.layer.cornerRadius = 12.0
+    self.userImageView.layer.borderWidth = 0.5
+    self.userImageView.layer.borderColor = UIColor.gray.cgColor
+  }
 }

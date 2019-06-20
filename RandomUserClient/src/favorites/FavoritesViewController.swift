@@ -85,7 +85,7 @@ extension FavoritesViewController: UITableViewDelegate {
 extension FavoritesViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let unwrappedFilteredResults = filteredResults {
-      return unwrappedFilteredResults.count
+      return unwrappedFilteredResults.count < 1 ? 0 : unwrappedFilteredResults.count
     } else {
       return 0
     }
@@ -93,14 +93,14 @@ extension FavoritesViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       guard let cell = favoritesTableView.dequeueReusableCell(withIdentifier: "UsersListTableViewCell", for: indexPath) as? UsersListTableViewCell
-        else {return UITableViewCell()}
+        else { return UITableViewCell() }
       if let unwrappedFilteredResults = filteredResults,
         let rowItemPicture = unwrappedFilteredResults[indexPath.row].picture,
         let rowItemPictureMedium = rowItemPicture.medium,
         let rowItemName = unwrappedFilteredResults[indexPath.row].name,
         let rowItemNameFirst = rowItemName.first,
         let rowItemNameLast = rowItemName.last {
-        let url = URL(string: rowItemPictureMedium)
+        guard let url = URL(string: (rowItemPictureMedium)) else { return UITableViewCell() }
         var data: Data = Data()
 
         cell.favouritesButton.imageView?.image = UIImage(named: "star-filled")
@@ -109,17 +109,17 @@ extension FavoritesViewController: UITableViewDataSource {
         cell.delegate = self
         if InternetReachiability.isConnectedToNetwork() {
           DispatchQueue.global().async {
-            data = try! Data(contentsOf: url!)
+            do {
+              data = try Data(contentsOf: url)
+            } catch {
+              print(error.localizedDescription)
+            }
             DispatchQueue.main.async {
               cell.userImageView.image = UIImage(data: data)
             }
           }
         }
       }
-      cell.userImageView.layer.masksToBounds = true
-      cell.userImageView.layer.cornerRadius = 12.0
-      cell.userImageView.layer.borderWidth = 0.5
-      cell.userImageView.layer.borderColor = UIColor.gray.cgColor
       return cell
   }
 }

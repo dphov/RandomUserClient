@@ -76,9 +76,9 @@ class UsersListViewController: UIViewController, ServiceableByRealm {
             }
           }
         }
+        self.usersInfoController.fetchingMore = false
       }
     }
-    usersInfoController.fetchingMore = false
   }
 
   @IBAction func refreshUsersDataAction() {
@@ -90,10 +90,8 @@ class UsersListViewController: UIViewController, ServiceableByRealm {
     print(Realm.Configuration.defaultConfiguration.fileURL!)
     usersTableView.delegate = self
     usersTableView.dataSource = self
-    usersTableView.register(UINib(nibName: usersListTableViewCellId, bundle: nil),
-                            forCellReuseIdentifier: usersListTableViewCellId)
-    usersTableView.register(UINib(nibName: "LoadingCell", bundle: nil),
-                            forCellReuseIdentifier: "LoadingCell")
+    usersTableView.register(UINib(nibName: usersListTableViewCellId, bundle: nil), forCellReuseIdentifier: usersListTableViewCellId)
+    usersTableView.register(UINib(nibName: "LoadingCell", bundle: nil), forCellReuseIdentifier: "LoadingCell")
     addUsersData()
     self.usersTableView.addSubview(self.refreshControl)
     refreshControl.addTarget(self, action: #selector(UsersListViewController.refreshUsersDataAction), for: .valueChanged)
@@ -103,16 +101,19 @@ class UsersListViewController: UIViewController, ServiceableByRealm {
     notificationToken = unwrappedResults.observe { [weak self] (changes: RealmCollectionChange) in
       guard let tableView = self?.usersTableView else { return }
       switch changes {
-      case .initial: tableView.reloadData()
+      case .initial:
+        tableView.reloadData()
       case .update(_, let deletions, let insertions, let updates):
-        let fromRow = {(row: Int) in
-          return IndexPath(row: row, section: 0)}
+        let fromRow = { (row: Int) in
+          return IndexPath(row: row, section: 0)
+        }
         tableView.beginUpdates()
         tableView.deleteRows(at: deletions.map(fromRow), with: .automatic)
         tableView.insertRows(at: insertions.map(fromRow), with: .automatic)
         tableView.reloadRows(at: updates.map(fromRow), with: .none)
         tableView.endUpdates()
-      case .error(let error): fatalError("\(error)")
+      case .error(let error):
+        fatalError("\(error)")
       }
     }
   }
@@ -161,22 +162,23 @@ extension UsersListViewController: UITableViewDelegate {
     cell.backgroundView = customView
     cell.selectedBackgroundView = customView
     if let unwrappedResults = results {
-      let user: RandomUserDataModel = unwrappedResults[indexPath.row]
-      if type(of: cell) == UsersListTableViewCell.self {
-        let tableCell = cell as! UsersListTableViewCell
-        if user.isInFavorites == "true" {
-          tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star-filled")
-        } else {
-          tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star")
+        let user: RandomUserDataModel = unwrappedResults[indexPath.row]
+        if type(of: cell) == UsersListTableViewCell.self {
+          if let tableCell = cell as? UsersListTableViewCell {
+            if user.isInFavorites == "true" {
+              tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star-filled")
+            } else {
+              tableCell.favouritesButton.imageView?.image = UIImage.init(named: "star")
+            }
+          }
         }
-      }
     }
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if section == 0 {
       if let unwrappedResults = results {
-        return unwrappedResults.count
+        return unwrappedResults.count < 1 ? 0 : unwrappedResults.count
       }
     } else if section == 1 && usersInfoController.fetchingMore {
       return 1
@@ -185,24 +187,25 @@ extension UsersListViewController: UITableViewDelegate {
   }
 
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    // TODO: fix update of sections
+    return 1
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserInfoViewController") as! UserInfoViewController
-    if let indexPath = usersTableView.indexPathForSelectedRow,
-      let unwrappedResults = results {
-      let selectedRow = indexPath.row
-      let selectedUser: RandomUserDataModel = unwrappedResults[selectedRow]
-      if let selectedUserId = selectedUser.id {
-        vc.userObjectId = selectedUserId
+    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
+        let indexPath = usersTableView.indexPathForSelectedRow,
+        let unwrappedResults = results {
+          let selectedRow = indexPath.row
+          let selectedUser: RandomUserDataModel = unwrappedResults[selectedRow]
+          if let selectedUserId = selectedUser.id {
+            vc.userObjectId = selectedUserId
+          }
+          vc.realmService = realmService
+          DispatchQueue.main.async {
+            self.navigationController?.pushViewController(vc, animated: true)
+          }
+          tableView.deselectRow(at: indexPath, animated: true)
       }
-      vc.realmService = realmService
-      DispatchQueue.main.async {
-        self.navigationController?.pushViewController(vc, animated: true)
-      }
-      tableView.deselectRow(at: indexPath, animated: true)
-    }
   }
 
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -228,7 +231,7 @@ extension UsersListViewController: UITableViewDataSource {
         let rowItemName = unwrappedResults[indexPath.row].name,
         let rowItemNameFirst = rowItemName.first,
         let rowItemNameLast = rowItemName.last {
-          let url = URL(string: rowItemPictureMedium)
+          guard let url = URL(string: rowItemPictureMedium) else { return UITableViewCell() }
           var data: Data = Data()
 
           cell.userNameLabel.text = rowItemNameFirst.capitalized + " " + rowItemNameLast.capitalized
@@ -236,22 +239,23 @@ extension UsersListViewController: UITableViewDataSource {
           cell.delegate = self
           if InternetReachiability.isConnectedToNetwork() {
             DispatchQueue.global().async {
-              data = try! Data(contentsOf: url!)
-              DispatchQueue.main.async {
+              do {
+                data = try Data(contentsOf: url)
+              } catch {
+                print(error.localizedDescription)
+              }
+                DispatchQueue.main.async {
                 cell.userImageView.image = UIImage(data: data)
               }
             }
           }
       }
-      cell.userImageView.layer.masksToBounds = true
-      cell.userImageView.layer.cornerRadius = 12.0
-      cell.userImageView.layer.borderWidth = 0.5
-      cell.userImageView.layer.borderColor = UIColor.gray.cgColor
       return cell
     } else {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! LoadingCell
-      cell.spinner.startAnimating()
-      return cell
+      if let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as? LoadingCell {
+        cell.spinner.startAnimating()
+        return cell
+      } else { return UITableViewCell() }
     }
   }
 }

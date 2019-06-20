@@ -11,7 +11,6 @@ import UIKit
 class UserTimezoneCell: UITableViewCell {
   @IBOutlet weak var offsetLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
-  
   func setup (_ obj: RandomUserDataLocationTimezoneModel) {
     if let userObjectTimezoneOffset: String = obj.offset,
       let userObjectTimezoneDescription: String = obj.zoneDescription {

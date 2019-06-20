@@ -36,82 +36,81 @@ class UserInfoTableViewController: UITableViewController {
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
-      return 9
+      return cellsForRegister.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    var cell: UITableViewCell = UITableViewCell()
-    var userInfoTopCell: UserInfoTopCell
-    var userLocationCell: UserLocationCell
-    var userAdressCell: UserAdressCell
-    var userTimezoneCell: UserTimezoneCell
-    var userLoginCell: UserLoginCell
-    var userDOBCell: UserDateAgeDisplayCell
-    var userRegisteredCell: UserDateAgeDisplayCell
-    var userIDCell: UserIDCell
-    var userOtherDataCell: UserOtherDataCell
+    let cell: UITableViewCell = UITableViewCell()
 
     switch indexPath.section {
     case 0:
-        userInfoTopCell = tableView.dequeueReusableCell(withIdentifier: "UserInfoTopCell", for: indexPath) as! UserInfoTopCell
+      if let userInfoTopCell = tableView.dequeueReusableCell(withIdentifier: "UserInfoTopCell", for: indexPath) as? UserInfoTopCell {
         userInfoTopCell.setup(userObject)
         return userInfoTopCell
+      } else { return cell }
     case 1:
       guard let userObjectLocation: RandomUserDataLocationModel = userObject.location else {
         return cell
       }
-      userLocationCell = tableView.dequeueReusableCell(withIdentifier: "UserLocationCell", for: indexPath) as! UserLocationCell
-      userLocationCell.setup(userObjectLocation)
-      return userLocationCell
+      if let userLocationCell = tableView.dequeueReusableCell(withIdentifier: "UserLocationCell", for: indexPath) as? UserLocationCell {
+        userLocationCell.setup(userObjectLocation)
+        return userLocationCell
+      } else { return cell }
     case 2:
       guard let userObjectLocation: RandomUserDataLocationModel = userObject.location else {
         return cell
       }
-      userAdressCell = tableView.dequeueReusableCell(withIdentifier: "UserAdressCell", for: indexPath) as! UserAdressCell
-      userAdressCell.setup(userObjectLocation)
-      return userAdressCell
+      if let userAdressCell = tableView.dequeueReusableCell(withIdentifier: "UserAdressCell", for: indexPath) as? UserAdressCell {
+        userAdressCell.setup(userObjectLocation)
+        return userAdressCell
+      } else { return cell }
     case 3:
       guard let userObjectLocation: RandomUserDataLocationModel = userObject.location,
             let userObjectTimezone: RandomUserDataLocationTimezoneModel = userObjectLocation.timezone else {
         return cell
       }
-      userTimezoneCell = tableView.dequeueReusableCell(withIdentifier: "UserTimezoneCell", for: indexPath) as! UserTimezoneCell
-      userTimezoneCell.setup(userObjectTimezone)
-      return userTimezoneCell
+      if let userTimezoneCell = tableView.dequeueReusableCell(withIdentifier: "UserTimezoneCell", for: indexPath) as? UserTimezoneCell {
+        userTimezoneCell.setup(userObjectTimezone)
+        return userTimezoneCell
+      } else { return cell }
     case 4:
       guard let userObjectLogin: RandomUserDataLoginModel = userObject.login else {
         return cell
       }
-      userLoginCell = tableView.dequeueReusableCell(withIdentifier: "UserLoginCell", for: indexPath) as! UserLoginCell
-      userLoginCell.setup(userObjectLogin)
-      return userLoginCell
+      if let userLoginCell = tableView.dequeueReusableCell(withIdentifier: "UserLoginCell", for: indexPath) as? UserLoginCell {
+        userLoginCell.setup(userObjectLogin)
+        return userLoginCell
+      } else { return cell }
     case 5:
       guard let userObjectDOB: RandomUserDataDOBModel = userObject.dob else {
         return cell
       }
-      userDOBCell = tableView.dequeueReusableCell(withIdentifier: "UserDateAgeDisplayCell", for: indexPath) as! UserDateAgeDisplayCell
-      userDOBCell.setup(userObjectDOB)
-      return userDOBCell
+      if let userDOBCell = tableView.dequeueReusableCell(withIdentifier: "UserDateAgeDisplayCell", for: indexPath) as? UserDateAgeDisplayCell {
+        userDOBCell.setup(userObjectDOB)
+        return userDOBCell
+      } else { return cell }
     case 6:
       guard let userObjectRegistered: RandomUserDataRegisteredModel = userObject.registered else {
         return cell
       }
-      userRegisteredCell = tableView.dequeueReusableCell(withIdentifier: "UserDateAgeDisplayCell", for: indexPath) as! UserDateAgeDisplayCell
-      userRegisteredCell.setup(userObjectRegistered)
-      return userRegisteredCell
+      if let userRegisteredCell = tableView.dequeueReusableCell(withIdentifier: "UserDateAgeDisplayCell", for: indexPath) as? UserDateAgeDisplayCell {
+        userRegisteredCell.setup(userObjectRegistered)
+        return userRegisteredCell
+      } else { return cell }
     case 7:
       guard let userObjectID: RandomUserDataIDModel = userObject.dataId else {
         return cell
       }
-      userIDCell = tableView.dequeueReusableCell(withIdentifier: "UserIDCell", for: indexPath) as! UserIDCell
-      userIDCell.setup(userObjectID)
-      return userIDCell
+      if let userIDCell = tableView.dequeueReusableCell(withIdentifier: "UserIDCell", for: indexPath) as? UserIDCell {
+        userIDCell.setup(userObjectID)
+        return userIDCell
+      } else { return cell }
     case 8:
-      userOtherDataCell = tableView.dequeueReusableCell(withIdentifier: "UserOtherDataCell", for: indexPath) as! UserOtherDataCell
-      userOtherDataCell.setup(userObject)
-      return userOtherDataCell
+      if let userOtherDataCell = tableView.dequeueReusableCell(withIdentifier: "UserOtherDataCell", for: indexPath) as? UserOtherDataCell {
+        userOtherDataCell.setup(userObject)
+        return userOtherDataCell
+      } else { return cell }
     default:
-        cell = UITableViewCell()
         return cell
     }
   }
