@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		A83C439F22A1CAB300C493BB /* UserLoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83C439E22A1CAB300C493BB /* UserLoginCell.xib */; };
 		A83C43A122A1CCA300C493BB /* UserDateAgeDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83C43A022A1CCA300C493BB /* UserDateAgeDisplayCell.xib */; };
 		A83C43A322A1CD2A00C493BB /* UserIDCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83C43A222A1CD2A00C493BB /* UserIDCell.xib */; };
+		A83FE3D322C638C800FCD8FF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83FE3D122C638C700FCD8FF /* RealmSwift.framework */; };
+		A83FE3D422C638C800FCD8FF /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A83FE3D122C638C700FCD8FF /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A83FE3D522C638C800FCD8FF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83FE3D222C638C800FCD8FF /* Realm.framework */; };
+		A83FE3D622C638C800FCD8FF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A83FE3D222C638C800FCD8FF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A85F5F0122A430B9005478FA /* UserAdressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0022A430B9005478FA /* UserAdressCell.swift */; };
 		A85F5F0322A430D2005478FA /* UserDateAgeDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0222A430D2005478FA /* UserDateAgeDisplayCell.swift */; };
 		A85F5F0522A430E6005478FA /* UserIDCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0422A430E6005478FA /* UserIDCell.swift */; };
@@ -43,12 +47,24 @@
 		A8DE9E7922A7B31B00EA413C /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DE9E7822A7B31B00EA413C /* LoadingCell.xib */; };
 		A8DE9E7B22A7B3D700EA413C /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE9E7A22A7B3D700EA413C /* LoadingCell.swift */; };
 		A8F8573D229DAF7D00700E9F /* UserInfoTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8573C229DAF7D00700E9F /* UserInfoTopCell.swift */; };
-		BDA54B4648AA9F5683A516AF /* Pods_RandomUserClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F3B9EE34CC0446AA7600C5 /* Pods_RandomUserClient.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A83FE3D022C6373100FCD8FF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A83FE3D622C638C800FCD8FF /* Realm.framework in Embed Frameworks */,
+				A83FE3D422C638C800FCD8FF /* RealmSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		51FCA56677A037BD9A75C1D0 /* Pods-RandomUserClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserClient.debug.xcconfig"; path = "Target Support Files/Pods-RandomUserClient/Pods-RandomUserClient.debug.xcconfig"; sourceTree = "<group>"; };
-		A2367A9E5344E610C160F21F /* Pods-RandomUserClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUserClient.release.xcconfig"; path = "Target Support Files/Pods-RandomUserClient/Pods-RandomUserClient.release.xcconfig"; sourceTree = "<group>"; };
 		A832951A229D6468000A4FD8 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		A83C439422A16A0500C493BB /* UserLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserLocationCell.xib; sourceTree = "<group>"; };
 		A83C439622A16A2C00C493BB /* UserLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationCell.swift; sourceTree = "<group>"; };
@@ -58,6 +74,8 @@
 		A83C439E22A1CAB300C493BB /* UserLoginCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserLoginCell.xib; sourceTree = "<group>"; };
 		A83C43A022A1CCA300C493BB /* UserDateAgeDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDateAgeDisplayCell.xib; sourceTree = "<group>"; };
 		A83C43A222A1CD2A00C493BB /* UserIDCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserIDCell.xib; sourceTree = "<group>"; };
+		A83FE3D122C638C700FCD8FF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		A83FE3D222C638C800FCD8FF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		A85F5F0022A430B9005478FA /* UserAdressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdressCell.swift; sourceTree = "<group>"; };
 		A85F5F0222A430D2005478FA /* UserDateAgeDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDateAgeDisplayCell.swift; sourceTree = "<group>"; };
 		A85F5F0422A430E6005478FA /* UserIDCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDCell.swift; sourceTree = "<group>"; };
@@ -87,29 +105,21 @@
 		A8DE9E7822A7B31B00EA413C /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		A8DE9E7A22A7B3D700EA413C /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		A8F8573C229DAF7D00700E9F /* UserInfoTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTopCell.swift; sourceTree = "<group>"; };
-		D2F3B9EE34CC0446AA7600C5 /* Pods_RandomUserClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUserClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A8B969AB229C1F260085C735 /* Frameworks */ = {
+		A83FE3CF22C6373100FCD8FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDA54B4648AA9F5683A516AF /* Pods_RandomUserClient.framework in Frameworks */,
+				A83FE3D522C638C800FCD8FF /* Realm.framework in Frameworks */,
+				A83FE3D322C638C800FCD8FF /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8572E3C2987526DE02082843 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D2F3B9EE34CC0446AA7600C5 /* Pods_RandomUserClient.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A832951D229DAECA000A4FD8 /* user-info */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,15 @@
 				A832951A229D6468000A4FD8 /* UserInfoViewController.swift */,
 			);
 			path = "user-info";
+			sourceTree = "<group>";
+		};
+		A83FE3AC22C633B900FCD8FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A83FE3D222C638C800FCD8FF /* Realm.framework */,
+				A83FE3D122C638C700FCD8FF /* RealmSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A86BD7CA229E7C2300BDB0C6 /* utils */ = {
@@ -172,7 +191,7 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
-		A87DE7C9229D3D3800197BCC /* src */ = {
+		A87DE7C9229D3D3800197BCC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				A89A9B0722A05C310075FC02 /* favorites */,
@@ -182,7 +201,7 @@
 				A89A9B0622A05C040075FC02 /* users-list */,
 				A86BD7CA229E7C2300BDB0C6 /* utils */,
 			);
-			path = src;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		A8959E7822A2DFB100055986 /* models */ = {
@@ -217,8 +236,7 @@
 			children = (
 				A8B969B0229C1F260085C735 /* RandomUserClient */,
 				A8B969AF229C1F260085C735 /* Products */,
-				E3A4C80A1BE65B1FB30CA023 /* Pods */,
-				8572E3C2987526DE02082843 /* Frameworks */,
+				A83FE3AC22C633B900FCD8FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -233,7 +251,7 @@
 		A8B969B0229C1F260085C735 /* RandomUserClient */ = {
 			isa = PBXGroup;
 			children = (
-				A87DE7C9229D3D3800197BCC /* src */,
+				A87DE7C9229D3D3800197BCC /* Sources */,
 				A873105F22A2FCC200FF7326 /* RandomUsersClientTabBarController.swift */,
 				A8B969B1229C1F260085C735 /* AppDelegate.swift */,
 				A8B969B8229C1F280085C735 /* Assets.xcassets */,
@@ -244,15 +262,6 @@
 			path = RandomUserClient;
 			sourceTree = "<group>";
 		};
-		E3A4C80A1BE65B1FB30CA023 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				51FCA56677A037BD9A75C1D0 /* Pods-RandomUserClient.debug.xcconfig */,
-				A2367A9E5344E610C160F21F /* Pods-RandomUserClient.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,12 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8B969C0229C1F280085C735 /* Build configuration list for PBXNativeTarget "RandomUserClient" */;
 			buildPhases = (
-				0EDCEB98347509E130B8ECAA /* [CP] Check Pods Manifest.lock */,
-				A8B969AA229C1F260085C735 /* Sources */,
-				A8B969AB229C1F260085C735 /* Frameworks */,
+				A83FE39322C624DE00FCD8FF /* ShellScript */,
+				A83FE3CF22C6373100FCD8FF /* Frameworks */,
+				A83FE3D022C6373100FCD8FF /* Embed Frameworks */,
 				A8B969AC229C1F260085C735 /* Resources */,
-				A407CFA45AE6B3A1BDA52328 /* [CP] Embed Pods Frameworks */,
-				A8BEA54C22A7BF5400D074B4 /* ShellScript */,
+				A83FE39522C62D9100FCD8FF /* ShellScript */,
+				A8B969AA229C1F260085C735 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -333,7 +342,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0EDCEB98347509E130B8ECAA /* [CP] Check Pods Manifest.lock */ = {
+		A83FE39322C624DE00FCD8FF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,38 +350,20 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RandomUserClient-checkManifestLockResult.txt",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework\n",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework\n",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
-		A407CFA45AE6B3A1BDA52328 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RandomUserClient/Pods-RandomUserClient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RandomUserClient/Pods-RandomUserClient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RandomUserClient/Pods-RandomUserClient-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A8BEA54C22A7BF5400D074B4 /* ShellScript */ = {
+		A83FE39522C62D9100FCD8FF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -387,7 +378,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if /usr/local/bin/swiftlint; then\n    /usr/local/bin/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings | 2>/dev/null\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -450,7 +441,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -511,7 +502,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -562,11 +553,14 @@
 		};
 		A8B969C1229C1F280085C735 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51FCA56677A037BD9A75C1D0 /* Pods-RandomUserClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NDTT7JL5S8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RandomUserClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -581,11 +575,14 @@
 		};
 		A8B969C2229C1F280085C735 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2367A9E5344E610C160F21F /* Pods-RandomUserClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NDTT7JL5S8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RandomUserClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
