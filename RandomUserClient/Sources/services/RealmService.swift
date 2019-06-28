@@ -9,6 +9,7 @@
 // swiftlint:disable force_try
 
 import RealmSwift
+import UIKit
 
 protocol ServiceableByRealm {
   var realmService: RealmService? { get set }
