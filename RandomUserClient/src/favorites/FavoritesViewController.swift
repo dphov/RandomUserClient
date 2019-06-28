@@ -47,8 +47,9 @@ class FavoritesViewController: UIViewController, ServiceableByRealm {
       switch changes {
       case .initial: tableView.reloadData()
       case .update(_, let deletions, let insertions, let updates):
-        let fromRow = {(row: Int) in
-          return IndexPath(row: row, section: 0)}
+        let fromRow = { (row: Int) in
+          return IndexPath(row: row, section: 0)
+        }
         tableView.beginUpdates()
         tableView.deleteRows(at: deletions.map(fromRow), with: .automatic)
         tableView.insertRows(at: insertions.map(fromRow), with: .automatic)
@@ -80,6 +81,23 @@ class FavoritesViewController: UIViewController, ServiceableByRealm {
 // MARK: - UITableViewDelegate
 extension FavoritesViewController: UITableViewDelegate {
 
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
+      let indexPath = favoritesTableView.indexPathForSelectedRow,
+      let unwrappedResults = results,
+      let unwrappedFilteredResults = filteredResults {
+      let selectedRow = indexPath.row
+      let selectedUser: RandomUserDataModel = unwrappedFilteredResults[selectedRow]
+      if let selectedUserId = selectedUser.id {
+        vc.userObjectId = selectedUserId
+      }
+      vc.realmService = realmService
+      DispatchQueue.main.async {
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
+      tableView.deselectRow(at: indexPath, animated: true)
+    }
+  }
 }
 // MARK: - UITableViewDataSource
 extension FavoritesViewController: UITableViewDataSource {

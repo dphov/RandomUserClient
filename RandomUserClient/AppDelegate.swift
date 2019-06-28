@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return true
     }
     let realmService = RealmService()
+    let inMemoryCacheCapacity = 4 * 1024 * 1024
+    let onDiskCacheCapacity = 20 * 1024 * 1024
+//    let urlCache = URLCache.init(memoryCapacity: inMemoryCacheCapacity, diskCapacity: onDiskCacheCapacity, diskPath: nil)
+    URLCache.shared.memoryCapacity = inMemoryCacheCapacity
+    URLCache.shared.diskCapacity = onDiskCacheCapacity
     randomUsersClientTabBarController.realmService = realmService
     return true
   }
