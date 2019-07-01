@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A832951B229D6468000A4FD8 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832951A229D6468000A4FD8 /* UserInfoViewController.swift */; };
+		A82C2ABF22C691BB00287B99 /* NeedleFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82C2ABE22C691BB00287B99 /* NeedleFoundation.framework */; };
+		A82C2AC022C691BB00287B99 /* NeedleFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A82C2ABE22C691BB00287B99 /* NeedleFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A82C2AC622C6987600287B99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82C2AC522C6987600287B99 /* RootViewController.swift */; };
+		A82C2AC822C6988700287B99 /* RootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82C2AC722C6988700287B99 /* RootComponent.swift */; };
+		A82C2ACD22C6AF1A00287B99 /* RUCTabBarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82C2ACC22C6AF1A00287B99 /* RUCTabBarComponent.swift */; };
 		A83C439522A16A0500C493BB /* UserLocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83C439422A16A0500C493BB /* UserLocationCell.xib */; };
 		A83C439722A16A2C00C493BB /* UserLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83C439622A16A2C00C493BB /* UserLocationCell.swift */; };
 		A83C439922A1A5DF00C493BB /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83C439822A1A5DF00C493BB /* StringUtils.swift */; };
@@ -26,26 +30,31 @@
 		A85F5F0722A43108005478FA /* UserLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0622A43108005478FA /* UserLoginCell.swift */; };
 		A85F5F0922A43120005478FA /* UserTimezoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0822A43120005478FA /* UserTimezoneCell.swift */; };
 		A85F5F0B22A45CDF005478FA /* UserOtherDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85F5F0A22A45CDF005478FA /* UserOtherDataCell.swift */; };
-		A85F5F0D22A45D21005478FA /* UserOtherDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85F5F0C22A45D21005478FA /* UserOtherDataCell.xib */; };
-		A86BD7CE229E87CE00BDB0C6 /* UserInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86BD7CD229E87CE00BDB0C6 /* UserInfoTableViewController.swift */; };
+		A867F4C922C9FD3800B1ADD4 /* RUCUserInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A867F4C822C9FD3800B1ADD4 /* RUCUserInfoComponent.swift */; };
+		A867F4CB22CA01E000B1ADD4 /* RUCUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A867F4CA22CA01E000B1ADD4 /* RUCUserInfoViewController.swift */; };
+		A867F4CE22CA09CA00B1ADD4 /* RUCUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A867F4CD22CA09CA00B1ADD4 /* RUCUserInfoViewController.xib */; };
 		A86BD7D0229E8EC400BDB0C6 /* UserInfoTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86BD7CF229E8EC400BDB0C6 /* UserInfoTopCell.xib */; };
 		A873105B22A2E23000FF7326 /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873105A22A2E23000FF7326 /* InternetReachability.swift */; };
 		A873105E22A2F0C400FF7326 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873105D22A2F0C400FF7326 /* RealmService.swift */; };
-		A873106022A2FCC200FF7326 /* RandomUsersClientTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873105F22A2FCC200FF7326 /* RandomUsersClientTabBarController.swift */; };
+		A873106022A2FCC200FF7326 /* RUCTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A873105F22A2FCC200FF7326 /* RUCTabBarController.swift */; };
 		A878019422A12337004123F8 /* UsersListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A878019322A12337004123F8 /* UsersListTableViewCell.xib */; };
-		A87DE7CB229D3D5A00197BCC /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87DE7CA229D3D5A00197BCC /* UsersListViewController.swift */; };
-		A87DE7CD229D3D7100197BCC /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87DE7CC229D3D7100197BCC /* FavoritesViewController.swift */; };
+		A87DE7CD229D3D7100197BCC /* RUCFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87DE7CC229D3D7100197BCC /* RUCFavoritesViewController.swift */; };
 		A87DE7CF229D50B100197BCC /* UsersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87DE7CE229D50B100197BCC /* UsersListTableViewCell.swift */; };
 		A89A9B0322A040CA0075FC02 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A9B0222A040CA0075FC02 /* UsersViewModel.swift */; };
-		A89A9B0522A05BDE0075FC02 /* UsersListInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A9B0422A05BDE0075FC02 /* UsersListInfoController.swift */; };
 		A89FF917229EF6F400B6B41A /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89FF916229EF6F300B6B41A /* UrlUtils.swift */; };
 		A89FF919229EF74B00B6B41A /* UsersViewStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89FF918229EF74B00B6B41A /* UsersViewStructs.swift */; };
 		A8B969B2229C1F260085C735 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B969B1229C1F260085C735 /* AppDelegate.swift */; };
-		A8B969B7229C1F260085C735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B969B5229C1F260085C735 /* Main.storyboard */; };
 		A8B969B9229C1F280085C735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8B969B8229C1F280085C735 /* Assets.xcassets */; };
 		A8B969BC229C1F280085C735 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8B969BA229C1F280085C735 /* LaunchScreen.storyboard */; };
 		A8DE9E7922A7B31B00EA413C /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DE9E7822A7B31B00EA413C /* LoadingCell.xib */; };
 		A8DE9E7B22A7B3D700EA413C /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE9E7A22A7B3D700EA413C /* LoadingCell.swift */; };
+		A8E493D522C737D4006D5CDA /* RUCUsersListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E493D422C737D4006D5CDA /* RUCUsersListComponent.swift */; };
+		A8E493D822C73874006D5CDA /* RUCUsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E493D722C73874006D5CDA /* RUCUsersListViewController.swift */; };
+		A8E493DA22C739D4006D5CDA /* RUCUsersListInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E493D922C739D4006D5CDA /* RUCUsersListInfoController.swift */; };
+		A8E493DF22C776F2006D5CDA /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E493DE22C776F2006D5CDA /* NeedleGenerated.swift */; };
+		A8E493E122C77BEA006D5CDA /* RUCUsersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E493E022C77BEA006D5CDA /* RUCUsersListViewController.xib */; };
+		A8E493E322C793EA006D5CDA /* RUCFavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8E493E222C793EA006D5CDA /* RUCFavoritesViewController.xib */; };
+		A8E493E522C79D75006D5CDA /* RUCFavoritesComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E493E422C79D75006D5CDA /* RUCFavoritesComponent.swift */; };
 		A8F8573D229DAF7D00700E9F /* UserInfoTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F8573C229DAF7D00700E9F /* UserInfoTopCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,15 +66,28 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A83FE3D622C638C800FCD8FF /* Realm.framework in Embed Frameworks */,
+				A82C2AC022C691BB00287B99 /* NeedleFoundation.framework in Embed Frameworks */,
 				A83FE3D422C638C800FCD8FF /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		A8E493DD22C77306006D5CDA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A832951A229D6468000A4FD8 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		A82C2ABE22C691BB00287B99 /* NeedleFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NeedleFoundation.framework; path = Carthage/Build/iOS/NeedleFoundation.framework; sourceTree = "<group>"; };
+		A82C2AC522C6987600287B99 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A82C2AC722C6988700287B99 /* RootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootComponent.swift; sourceTree = "<group>"; };
+		A82C2ACC22C6AF1A00287B99 /* RUCTabBarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUCTabBarComponent.swift; sourceTree = "<group>"; };
 		A83C439422A16A0500C493BB /* UserLocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserLocationCell.xib; sourceTree = "<group>"; };
 		A83C439622A16A2C00C493BB /* UserLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationCell.swift; sourceTree = "<group>"; };
 		A83C439822A1A5DF00C493BB /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
@@ -82,28 +104,33 @@
 		A85F5F0622A43108005478FA /* UserLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginCell.swift; sourceTree = "<group>"; };
 		A85F5F0822A43120005478FA /* UserTimezoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTimezoneCell.swift; sourceTree = "<group>"; };
 		A85F5F0A22A45CDF005478FA /* UserOtherDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOtherDataCell.swift; sourceTree = "<group>"; };
-		A85F5F0C22A45D21005478FA /* UserOtherDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserOtherDataCell.xib; path = ../UserOtherDataCell.xib; sourceTree = "<group>"; };
-		A86BD7CD229E87CE00BDB0C6 /* UserInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewController.swift; sourceTree = "<group>"; };
+		A867F4C822C9FD3800B1ADD4 /* RUCUserInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUCUserInfoComponent.swift; sourceTree = "<group>"; };
+		A867F4CA22CA01E000B1ADD4 /* RUCUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUCUserInfoViewController.swift; sourceTree = "<group>"; };
+		A867F4CD22CA09CA00B1ADD4 /* RUCUserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RUCUserInfoViewController.xib; sourceTree = "<group>"; };
 		A86BD7CF229E8EC400BDB0C6 /* UserInfoTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoTopCell.xib; sourceTree = "<group>"; };
 		A873105A22A2E23000FF7326 /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
 		A873105D22A2F0C400FF7326 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
-		A873105F22A2FCC200FF7326 /* RandomUsersClientTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersClientTabBarController.swift; sourceTree = "<group>"; };
+		A873105F22A2FCC200FF7326 /* RUCTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUCTabBarController.swift; sourceTree = "<group>"; };
 		A878019322A12337004123F8 /* UsersListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersListTableViewCell.xib; sourceTree = "<group>"; };
-		A87DE7CA229D3D5A00197BCC /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
-		A87DE7CC229D3D7100197BCC /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		A87DE7CC229D3D7100197BCC /* RUCFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUCFavoritesViewController.swift; sourceTree = "<group>"; };
 		A87DE7CE229D50B100197BCC /* UsersListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListTableViewCell.swift; sourceTree = "<group>"; };
 		A89A9B0222A040CA0075FC02 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
-		A89A9B0422A05BDE0075FC02 /* UsersListInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListInfoController.swift; sourceTree = "<group>"; };
 		A89FF916229EF6F300B6B41A /* UrlUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
 		A89FF918229EF74B00B6B41A /* UsersViewStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewStructs.swift; sourceTree = "<group>"; };
 		A8B969AE229C1F260085C735 /* RandomUserClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUserClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B969B1229C1F260085C735 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A8B969B6229C1F260085C735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8B969B8229C1F280085C735 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8B969BB229C1F280085C735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8B969BD229C1F280085C735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8DE9E7822A7B31B00EA413C /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		A8DE9E7A22A7B3D700EA413C /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		A8E493D422C737D4006D5CDA /* RUCUsersListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUCUsersListComponent.swift; sourceTree = "<group>"; };
+		A8E493D722C73874006D5CDA /* RUCUsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RUCUsersListViewController.swift; path = RandomUserClient/Sources/RUCUsersListViewController.swift; sourceTree = SOURCE_ROOT; };
+		A8E493D922C739D4006D5CDA /* RUCUsersListInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUCUsersListInfoController.swift; sourceTree = "<group>"; };
+		A8E493DE22C776F2006D5CDA /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NeedleGenerated.swift; path = RandomUserClient/Sources/NeedleGenerated.swift; sourceTree = "<group>"; };
+		A8E493E022C77BEA006D5CDA /* RUCUsersListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RUCUsersListViewController.xib; sourceTree = "<group>"; };
+		A8E493E222C793EA006D5CDA /* RUCFavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RUCFavoritesViewController.xib; sourceTree = "<group>"; };
+		A8E493E422C79D75006D5CDA /* RUCFavoritesComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUCFavoritesComponent.swift; sourceTree = "<group>"; };
 		A8F8573C229DAF7D00700E9F /* UserInfoTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTopCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A83FE3D522C638C800FCD8FF /* Realm.framework in Frameworks */,
+				A82C2ABF22C691BB00287B99 /* NeedleFoundation.framework in Frameworks */,
 				A83FE3D322C638C800FCD8FF /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,33 +148,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A832951D229DAECA000A4FD8 /* user-info */ = {
+		A82C2AC422C6986200287B99 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				A86BD7D1229EA47C00BDB0C6 /* cells */,
-				A86BD7CD229E87CE00BDB0C6 /* UserInfoTableViewController.swift */,
-				A832951A229D6468000A4FD8 /* UserInfoViewController.swift */,
+				A82C2AC722C6988700287B99 /* RootComponent.swift */,
+				A82C2AC522C6987600287B99 /* RootViewController.swift */,
 			);
-			path = "user-info";
+			path = Root;
+			sourceTree = "<group>";
+		};
+		A82C2ACB22C6AF0100287B99 /* RUCTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A82C2ACC22C6AF1A00287B99 /* RUCTabBarComponent.swift */,
+				A873105F22A2FCC200FF7326 /* RUCTabBarController.swift */,
+			);
+			path = RUCTabBar;
 			sourceTree = "<group>";
 		};
 		A83FE3AC22C633B900FCD8FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A82C2ABE22C691BB00287B99 /* NeedleFoundation.framework */,
 				A83FE3D222C638C800FCD8FF /* Realm.framework */,
 				A83FE3D122C638C700FCD8FF /* RealmSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A86BD7CA229E7C2300BDB0C6 /* utils */ = {
+		A867F4D122CA1B2700B1ADD4 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A89D9CF822C9FCF100E0AE99 /* RUCUserInfo */,
+				A8E493D222C73727006D5CDA /* RUCFavorites */,
+				A8E493D122C7371A006D5CDA /* RUCUsersList */,
+				A82C2ACB22C6AF0100287B99 /* RUCTabBar */,
+				A82C2AC422C6986200287B99 /* Root */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A86BD7CA229E7C2300BDB0C6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				A89FF916229EF6F300B6B41A /* UrlUtils.swift */,
 				A83C439822A1A5DF00C493BB /* StringUtils.swift */,
 				A873105A22A2E23000FF7326 /* InternetReachability.swift */,
 			);
-			path = utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A86BD7D1229EA47C00BDB0C6 /* cells */ = {
@@ -167,17 +216,16 @@
 				A85F5F0822A43120005478FA /* UserTimezoneCell.swift */,
 				A83C439C22A1CA0800C493BB /* UserTimezoneCell.xib */,
 				A85F5F0A22A45CDF005478FA /* UserOtherDataCell.swift */,
-				A85F5F0C22A45D21005478FA /* UserOtherDataCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
 		};
-		A873105C22A2E50E00FF7326 /* services */ = {
+		A873105C22A2E50E00FF7326 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				A873105D22A2F0C400FF7326 /* RealmService.swift */,
 			);
-			path = services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		A878019222A12302004123F8 /* cells */ = {
@@ -194,46 +242,38 @@
 		A87DE7C9229D3D3800197BCC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A89A9B0722A05C310075FC02 /* favorites */,
-				A8959E7822A2DFB100055986 /* models */,
-				A873105C22A2E50E00FF7326 /* services */,
-				A832951D229DAECA000A4FD8 /* user-info */,
-				A89A9B0622A05C040075FC02 /* users-list */,
-				A86BD7CA229E7C2300BDB0C6 /* utils */,
+				A867F4D122CA1B2700B1ADD4 /* Screens */,
+				A8959E7822A2DFB100055986 /* Models */,
+				A873105C22A2E50E00FF7326 /* Services */,
+				A86BD7CA229E7C2300BDB0C6 /* Utils */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		A8959E7822A2DFB100055986 /* models */ = {
+		A8959E7822A2DFB100055986 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A89A9B0222A040CA0075FC02 /* UsersViewModel.swift */,
 				A89FF918229EF74B00B6B41A /* UsersViewStructs.swift */,
 			);
-			path = models;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		A89A9B0622A05C040075FC02 /* users-list */ = {
+		A89D9CF822C9FCF100E0AE99 /* RUCUserInfo */ = {
 			isa = PBXGroup;
 			children = (
-				A878019222A12302004123F8 /* cells */,
-				A89A9B0422A05BDE0075FC02 /* UsersListInfoController.swift */,
-				A87DE7CA229D3D5A00197BCC /* UsersListViewController.swift */,
+				A86BD7D1229EA47C00BDB0C6 /* cells */,
+				A867F4C822C9FD3800B1ADD4 /* RUCUserInfoComponent.swift */,
+				A867F4CA22CA01E000B1ADD4 /* RUCUserInfoViewController.swift */,
+				A867F4CD22CA09CA00B1ADD4 /* RUCUserInfoViewController.xib */,
 			);
-			path = "users-list";
-			sourceTree = "<group>";
-		};
-		A89A9B0722A05C310075FC02 /* favorites */ = {
-			isa = PBXGroup;
-			children = (
-				A87DE7CC229D3D7100197BCC /* FavoritesViewController.swift */,
-			);
-			path = favorites;
+			path = RUCUserInfo;
 			sourceTree = "<group>";
 		};
 		A8B969A5229C1F260085C735 = {
 			isa = PBXGroup;
 			children = (
+				A8E493DE22C776F2006D5CDA /* NeedleGenerated.swift */,
 				A8B969B0229C1F260085C735 /* RandomUserClient */,
 				A8B969AF229C1F260085C735 /* Products */,
 				A83FE3AC22C633B900FCD8FF /* Frameworks */,
@@ -252,14 +292,34 @@
 			isa = PBXGroup;
 			children = (
 				A87DE7C9229D3D3800197BCC /* Sources */,
-				A873105F22A2FCC200FF7326 /* RandomUsersClientTabBarController.swift */,
 				A8B969B1229C1F260085C735 /* AppDelegate.swift */,
 				A8B969B8229C1F280085C735 /* Assets.xcassets */,
 				A8B969BD229C1F280085C735 /* Info.plist */,
 				A8B969BA229C1F280085C735 /* LaunchScreen.storyboard */,
-				A8B969B5229C1F260085C735 /* Main.storyboard */,
 			);
 			path = RandomUserClient;
+			sourceTree = "<group>";
+		};
+		A8E493D122C7371A006D5CDA /* RUCUsersList */ = {
+			isa = PBXGroup;
+			children = (
+				A878019222A12302004123F8 /* cells */,
+				A8E493D422C737D4006D5CDA /* RUCUsersListComponent.swift */,
+				A8E493D922C739D4006D5CDA /* RUCUsersListInfoController.swift */,
+				A8E493D722C73874006D5CDA /* RUCUsersListViewController.swift */,
+				A8E493E022C77BEA006D5CDA /* RUCUsersListViewController.xib */,
+			);
+			path = RUCUsersList;
+			sourceTree = "<group>";
+		};
+		A8E493D222C73727006D5CDA /* RUCFavorites */ = {
+			isa = PBXGroup;
+			children = (
+				A8E493E422C79D75006D5CDA /* RUCFavoritesComponent.swift */,
+				A87DE7CC229D3D7100197BCC /* RUCFavoritesViewController.swift */,
+				A8E493E222C793EA006D5CDA /* RUCFavoritesViewController.xib */,
+			);
+			path = RUCFavorites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,12 +329,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8B969C0229C1F280085C735 /* Build configuration list for PBXNativeTarget "RandomUserClient" */;
 			buildPhases = (
+				A82C2AC122C6937A00287B99 /* ShellScript */,
 				A83FE39322C624DE00FCD8FF /* ShellScript */,
 				A83FE3CF22C6373100FCD8FF /* Frameworks */,
 				A83FE3D022C6373100FCD8FF /* Embed Frameworks */,
 				A8B969AC229C1F260085C735 /* Resources */,
 				A83FE39522C62D9100FCD8FF /* ShellScript */,
 				A8B969AA229C1F260085C735 /* Sources */,
+				A8E493DD22C77306006D5CDA /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -325,14 +387,15 @@
 			files = (
 				A8B969BC229C1F280085C735 /* LaunchScreen.storyboard in Resources */,
 				A8DE9E7922A7B31B00EA413C /* LoadingCell.xib in Resources */,
+				A867F4CE22CA09CA00B1ADD4 /* RUCUserInfoViewController.xib in Resources */,
 				A83C439F22A1CAB300C493BB /* UserLoginCell.xib in Resources */,
 				A8B969B9229C1F280085C735 /* Assets.xcassets in Resources */,
+				A8E493E322C793EA006D5CDA /* RUCFavoritesViewController.xib in Resources */,
 				A83C43A322A1CD2A00C493BB /* UserIDCell.xib in Resources */,
 				A83C439B22A1C8DF00C493BB /* UserAdressCell.xib in Resources */,
-				A85F5F0D22A45D21005478FA /* UserOtherDataCell.xib in Resources */,
 				A86BD7D0229E8EC400BDB0C6 /* UserInfoTopCell.xib in Resources */,
+				A8E493E122C77BEA006D5CDA /* RUCUsersListViewController.xib in Resources */,
 				A83C439522A16A0500C493BB /* UserLocationCell.xib in Resources */,
-				A8B969B7229C1F260085C735 /* Main.storyboard in Resources */,
 				A83C43A122A1CCA300C493BB /* UserDateAgeDisplayCell.xib in Resources */,
 				A878019422A12337004123F8 /* UsersListTableViewCell.xib in Resources */,
 				A83C439D22A1CA0800C493BB /* UserTimezoneCell.xib in Resources */,
@@ -342,6 +405,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A82C2AC122C6937A00287B99 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "needle generate RandomUserClient/Sources/NeedleGenerated.swift RandomUserClient/Sources/\n";
+		};
 		A83FE39322C624DE00FCD8FF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,12 +432,14 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NeedleFoundation.framework",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework\n",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework\n",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/NeedleFoundation.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -392,21 +474,27 @@
 				A8DE9E7B22A7B3D700EA413C /* LoadingCell.swift in Sources */,
 				A85F5F0522A430E6005478FA /* UserIDCell.swift in Sources */,
 				A85F5F0722A43108005478FA /* UserLoginCell.swift in Sources */,
-				A86BD7CE229E87CE00BDB0C6 /* UserInfoTableViewController.swift in Sources */,
+				A8E493D522C737D4006D5CDA /* RUCUsersListComponent.swift in Sources */,
 				A89A9B0322A040CA0075FC02 /* UsersViewModel.swift in Sources */,
 				A87DE7CF229D50B100197BCC /* UsersListTableViewCell.swift in Sources */,
+				A867F4C922C9FD3800B1ADD4 /* RUCUserInfoComponent.swift in Sources */,
+				A867F4CB22CA01E000B1ADD4 /* RUCUserInfoViewController.swift in Sources */,
+				A82C2ACD22C6AF1A00287B99 /* RUCTabBarComponent.swift in Sources */,
 				A85F5F0922A43120005478FA /* UserTimezoneCell.swift in Sources */,
 				A85F5F0122A430B9005478FA /* UserAdressCell.swift in Sources */,
 				A89FF919229EF74B00B6B41A /* UsersViewStructs.swift in Sources */,
-				A832951B229D6468000A4FD8 /* UserInfoViewController.swift in Sources */,
+				A8E493D822C73874006D5CDA /* RUCUsersListViewController.swift in Sources */,
 				A83C439922A1A5DF00C493BB /* StringUtils.swift in Sources */,
-				A873106022A2FCC200FF7326 /* RandomUsersClientTabBarController.swift in Sources */,
-				A87DE7CD229D3D7100197BCC /* FavoritesViewController.swift in Sources */,
+				A8E493DF22C776F2006D5CDA /* NeedleGenerated.swift in Sources */,
+				A873106022A2FCC200FF7326 /* RUCTabBarController.swift in Sources */,
+				A87DE7CD229D3D7100197BCC /* RUCFavoritesViewController.swift in Sources */,
+				A82C2AC822C6988700287B99 /* RootComponent.swift in Sources */,
+				A8E493E522C79D75006D5CDA /* RUCFavoritesComponent.swift in Sources */,
+				A82C2AC622C6987600287B99 /* RootViewController.swift in Sources */,
 				A89FF917229EF6F400B6B41A /* UrlUtils.swift in Sources */,
 				A85F5F0322A430D2005478FA /* UserDateAgeDisplayCell.swift in Sources */,
-				A87DE7CB229D3D5A00197BCC /* UsersListViewController.swift in Sources */,
 				A873105B22A2E23000FF7326 /* InternetReachability.swift in Sources */,
-				A89A9B0522A05BDE0075FC02 /* UsersListInfoController.swift in Sources */,
+				A8E493DA22C739D4006D5CDA /* RUCUsersListInfoController.swift in Sources */,
 				A8F8573D229DAF7D00700E9F /* UserInfoTopCell.swift in Sources */,
 				A8B969B2229C1F260085C735 /* AppDelegate.swift in Sources */,
 				A873105E22A2F0C400FF7326 /* RealmService.swift in Sources */,
@@ -416,14 +504,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A8B969B5229C1F260085C735 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A8B969B6229C1F260085C735 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A8B969BA229C1F280085C735 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
