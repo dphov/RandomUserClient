@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class RandomUsersClientTabBarController: UITabBarController {
+class TabBarController: UITabBarController {
   var realmService: RealmService?
 
   override func viewDidLoad() {

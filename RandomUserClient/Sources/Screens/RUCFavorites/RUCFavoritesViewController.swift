@@ -9,14 +9,22 @@
 import UIKit
 import RealmSwift
 
-class FavoritesViewController: UIViewController, ServiceableByRealm {
-  var realmService: RealmService?
+class RUCFavoritesViewController: UIViewController {
+  private var realmServiceMethods: RealmServiceMethods
+  private let rucUserInfoBuilder: RUCUserInfoBuilder
+
+  init(realmServiceMethods: RealmServiceMethods, rucUserInfoBuilder: RUCUserInfoBuilder) {
+    self.realmServiceMethods = realmServiceMethods
+    self.rucUserInfoBuilder = rucUserInfoBuilder
+    super.init(nibName: nil, bundle: nil)
+    print(self.description)
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   var results: Results<RandomUserDataModel>? {
-    if let unwrappedRealmService = realmService {
-      return unwrappedRealmService.getObjects(RandomUserDataModel.self).filter("isInFavorites = 'true'")
-    } else {
-      return nil
-    }
+    return realmServiceMethods.getObjects(RandomUserDataModel.self).filter("isInFavorites = 'true'")
   }
   var notificationToken: NotificationToken?
   func favFilter(_ user: RandomUserDataModel) -> Bool {
@@ -79,28 +87,26 @@ class FavoritesViewController: UIViewController, ServiceableByRealm {
 }
 
 // MARK: - UITableViewDelegate
-extension FavoritesViewController: UITableViewDelegate {
-
+extension RUCFavoritesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if let vc = self.storyboard?.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
-      let indexPath = favoritesTableView.indexPathForSelectedRow,
+      if let indexPath = favoritesTableView.indexPathForSelectedRow,
       let unwrappedResults = results,
       let unwrappedFilteredResults = filteredResults {
       let selectedRow = indexPath.row
       let selectedUser: RandomUserDataModel = unwrappedFilteredResults[selectedRow]
-      if let selectedUserId = selectedUser.id {
-        vc.userObjectId = selectedUserId
-      }
-      vc.realmService = realmService
-      DispatchQueue.main.async {
-        self.navigationController?.pushViewController(vc, animated: true)
-      }
-      tableView.deselectRow(at: indexPath, animated: true)
+        if let userInfoVC = rucUserInfoBuilder.rucUserInfoViewController as? RUCUserInfoViewController {
+          if let selectedUserId = selectedUser.id {
+            userInfoVC.userObjectId = selectedUserId
+          }
+          self.navigationController?.pushViewController(userInfoVC, animated: true)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
   }
 }
+
 // MARK: - UITableViewDataSource
-extension FavoritesViewController: UITableViewDataSource {
+extension RUCFavoritesViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let unwrappedFilteredResults = filteredResults {
       return unwrappedFilteredResults.count < 1 ? 0 : unwrappedFilteredResults.count
@@ -108,7 +114,6 @@ extension FavoritesViewController: UITableViewDataSource {
       return 0
     }
   }
-
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       guard let cell = favoritesTableView.dequeueReusableCell(withIdentifier: "UsersListTableViewCell", for: indexPath) as? UsersListTableViewCell
         else { return UITableViewCell() }
@@ -143,19 +148,19 @@ extension FavoritesViewController: UITableViewDataSource {
 }
 
 // MARK: - UsersListTableViewCellDelegate
-extension FavoritesViewController: UsersListTableViewCellDelegate {
+extension RUCFavoritesViewController: UsersListTableViewCellDelegate {
   func changeInFavoritesStatus(_ cell: UsersListTableViewCell) {
     if let indexPath = favoritesTableView.indexPath(for: cell),
       let unwrappedResults = results {
       let selectedRow = indexPath.row
       let selectedUser: RandomUserDataModel = unwrappedResults[selectedRow]
       if let selectedUserId = selectedUser.id,
-        let unwrappedSelectedUser = realmService?.getSpecificObject(RandomUserDataModel.self, primaryKey: selectedUserId) {
+        let unwrappedSelectedUser = realmServiceMethods.getSpecificObject(RandomUserDataModel.self, primaryKey: selectedUserId) {
         if unwrappedSelectedUser.isInFavorites == "true" {
-          realmService?.update(unwrappedSelectedUser, with: ["isInFavorites": "false"])
+          realmServiceMethods.update(unwrappedSelectedUser, with: ["isInFavorites": "false"])
           cell.favouritesButton.imageView?.image = UIImage.init(named: "star")
         } else {
-          realmService?.update(unwrappedSelectedUser, with: ["isInFavorites": "true"])
+          realmServiceMethods.update(unwrappedSelectedUser, with: ["isInFavorites": "true"])
           cell.favouritesButton.imageView?.image = UIImage.init(named: "star-filled")
         }
       }

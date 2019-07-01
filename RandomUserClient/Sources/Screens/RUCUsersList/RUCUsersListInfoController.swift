@@ -1,14 +1,22 @@
 //
-//  UsersInfoController.swift
+//  RUCUsersListInfoController.swift
 //  RandomUserClient
 //
-//  Created by Dmitry Petukhov on 30/05/2019.
+//  Created by Dmitry Petukhov on 29/06/2019.
 //  Copyright © 2019 Dmitry Petukhov. All rights reserved.
 //
 
 import Foundation
 
-struct UsersListInfoController {
+protocol RUCUsersListInfoController {
+  func fetchUsersData(forPage page: Int, completion: @escaping (RandomUsersDataRoot?) -> Void)
+  var lastPage: Int { get }
+  var firstPage: Int { get }
+  var fetchingMore: Bool { get set }
+}
+
+class RUCUsersListInfoControllerImpl: RUCUsersListInfoController {
+  init() {}
   var lastPage: Int = 10000
   var firstPage: Int = 1
   var fetchingMore: Bool = false
@@ -38,3 +46,4 @@ struct UsersListInfoController {
     task.resume()
   }
 }
+

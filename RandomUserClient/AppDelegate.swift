@@ -8,6 +8,7 @@
 
 // swiftlint:disable line_length
 import UIKit
+import NeedleFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,16 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    guard let randomUsersClientTabBarController = window?.rootViewController as? RandomUsersClientTabBarController else {
-      return true
-    }
-    let realmService = RealmService()
-    let inMemoryCacheCapacity = 4 * 1024 * 1024
-    let onDiskCacheCapacity = 20 * 1024 * 1024
-//    let urlCache = URLCache.init(memoryCapacity: inMemoryCacheCapacity, diskCapacity: onDiskCacheCapacity, diskPath: nil)
-    URLCache.shared.memoryCapacity = inMemoryCacheCapacity
-    URLCache.shared.diskCapacity = onDiskCacheCapacity
-    randomUsersClientTabBarController.realmService = realmService
+    registerProviderFactories()
+    let window = UIWindow(frame: UIScreen.main.bounds)
+    self.window = window
+
+    let rootComponent = RootComponent()
+    window.rootViewController = rootComponent.rootViewController
+
+    window.makeKeyAndVisible()
+//    guard let randomUsersClientTabBarController = window?.rootViewController as? RandomUsersClientTabBarController else {
+//      return true
+//    }
+//    let realmService = RealmService()
+//    let inMemoryCacheCapacity = 4 * 1024 * 1024
+//    let onDiskCacheCapacity = 20 * 1024 * 1024
+////    let urlCache = URLCache.init(memoryCapacity: inMemoryCacheCapacity, diskCapacity: onDiskCacheCapacity, diskPath: nil)
+//    URLCache.shared.memoryCapacity = inMemoryCacheCapacity
+//    URLCache.shared.diskCapacity = onDiskCacheCapacity
+//    randomUsersClientTabBarController.realmService = realmService
+
     return true
   }
 

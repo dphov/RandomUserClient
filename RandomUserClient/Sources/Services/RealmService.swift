@@ -12,12 +12,23 @@ import RealmSwift
 import UIKit
 
 protocol ServiceableByRealm {
-  var realmService: RealmService? { get set }
+  var realmService: RealmServiceImpl? { get set }
 }
 
-class RealmService {
-  init() {}
+protocol RealmServiceMethods {
+  func create< T: Object> (_ object: T, update isNeedUpdate: Bool)
+  func update<T: Object> (_ object: T, with dictionary: [String: Any?])
+  func update<T: Object> (_ object: T)
+  func delete< T: Object> (_ object: T)
+  func deleteAll()
+  func getObjects<T: Object> (_ object: T.Type) -> Results<T>
+  func getSpecificObject<T: Object> (_ object: T.Type, primaryKey: String) -> T?
+  func post(_ error: Error)
+  func observeRealmErrors(in vc: UIViewController, completion: @escaping (Error?) -> Void)
+  func stopObservingErrors(in vc: UIViewController)
+}
 
+class RealmServiceImpl: RealmServiceMethods {
   let realm = try! Realm()
 
   func create< T: Object> (_ object: T, update isNeedUpdate: Bool = false) {

@@ -13,15 +13,14 @@ protocol UsersListTableViewCellDelegate: class {
 }
 
 class UsersListTableViewCell: UITableViewCell {
-    weak var delegate: UsersListTableViewCellDelegate?
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var favouritesButton: UIButton!
-    @IBAction func favouritesButtonPressed(_ sender: UIButton) {
-          delegate?.changeInFavoritesStatus(self)
-    }
-
+  weak var delegate: UsersListTableViewCellDelegate?
+  @IBOutlet weak var userImageView: UIImageView!
+  @IBOutlet weak var userNameLabel: UILabel!
+  @IBOutlet weak var emailLabel: UILabel!
+  @IBOutlet weak var favouritesButton: UIButton!
+  @IBAction func favouritesButtonPressed(_ sender: UIButton) {
+        delegate?.changeInFavoritesStatus(self)
+  }
   override func prepareForReuse() {
     self.userImageView.layer.masksToBounds = true
     self.userImageView.layer.cornerRadius = 12.0
